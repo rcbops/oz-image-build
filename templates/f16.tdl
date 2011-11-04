@@ -1,0 +1,30 @@
+<template>
+ <name>fedora16_x86_64</name>
+ <description> Fedora 16 x86_64 template</description>
+ <os>
+  <name>Fedora</name>
+  <version>16</version>
+  <arch>x86_64</arch>
+  <rootpw>ROOT-PW_CHANGE-ME!!!</rootpw>
+  <install type='url'>
+    <url>http://mirrors.kernel.org/fedora/releases/test/16-Beta/Fedora/x86_64/os/</url>
+  </install>
+ </os>
+ <commands>
+   <command name='console'>
+sed -i 's/ rhgb / /g' /etc/default/grub
+sed -i 's/ quiet /i console=ttyS0 /g' /etc/default/grub
+/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+   </command>
+   <command name='update'>
+yum -y install yum-plugin-fastestmirror.noarch
+yum -y update
+yum -y downgrade libselinux nss-softokn-freebl libselinux-utils
+yum -y install cloud-init
+yum clean all
+/usr/sbin/adduser stack
+echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+sed -i 's/^user: ec2-user/user: stack/g' /etc/cloud/cloud.cfg
+   </command>
+ </commands>
+</template>
