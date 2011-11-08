@@ -1,7 +1,7 @@
 #!/bin/sh
 
 LIBVIRT="/var/lib/libvirt/images/"
-BASE_DIR="/root"
+BASE_DIR=$(dirname $0)
 LOCAL_IMAGES="$BASE_DIR/images"
 LOCAL_TEMPLATES="$BASE_DIR/templates"
 
