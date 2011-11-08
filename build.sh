@@ -5,7 +5,6 @@ BASE_DIR=$(dirname $0)
 LOCAL_IMAGES="$BASE_DIR/images"
 LOCAL_TEMPLATES="$BASE_DIR/templates"
 
-
 function usage {
     echo "Usage"
     echo "-----"
@@ -71,6 +70,17 @@ function build {
 }
 
 ## start of script
+
+# fixup the root passwords automagically if the script exists
+# this script is a simple shell script to change the password
+# token in the templates to your own - either real or generate
+# from pwgen
+# TODO: if the script doesn't exist then call pwgen, change it
+# in the template, and then build the image while reporting
+# the root password to the caller of the script
+if [ -f $BASEDIR/fixup-root-passwords.sh ]; then
+    $BASEDIR/fixup-root-passwords.sh
+fi
 
 case "$1" in
     f16)
