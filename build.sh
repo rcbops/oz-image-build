@@ -12,10 +12,10 @@ function usage {
     echo ""
     echo "build.sh <type>"
     echo ""
-    echo "f15:      Fedora 15 X86_64 image"
-    echo "f16:      Fedora 16 X86_64 image"    
-    echo "centos60  CentOS 6.1 X86_64 image"
-    echo "  rhel56  RedHat 5.6 X86_64 image"
+    echo "f15      :  Fedora 15 X86_64 image"
+    echo "f16      :  Fedora 16 X86_64 image"    
+    echo "centos60 :  CentOS 6.1 X86_64 image"
+    echo "  rhel56 :  RedHat 5.6 X86_64 image"
     echo ""
 }
 
