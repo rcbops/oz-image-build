@@ -10,10 +10,12 @@
     <url>ftp://kickstart.rackspace.com/redhat/rhel56_64/</url>
   </install>
  </os>
+ <packages>
+    <package name='yum-plugin-fastestmirror.noarch'/>
+ </packages>
  <commands>
    <command name='update'>
 yum -y update
-yum -y install yum-plugin-fastestmirror.noarch
 yum clean all
    </command>
    <command name='setup-rc-local'>

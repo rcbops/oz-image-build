@@ -10,6 +10,9 @@
     <url>http://mirrors.kernel.org/fedora/releases/test/16-Beta/Fedora/x86_64/os/</url>
   </install>
  </os>
+ <packages>
+   <package name='yum-plugin-fastestmirror.noarch'/>
+ </packages>
  <commands>
    <command name='console'>
 sed -i 's/ rhgb / /g' /etc/default/grub
@@ -17,7 +20,6 @@ sed -i 's/ quiet /i console=ttyS0 /g' /etc/default/grub
 /sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
    </command>
    <command name='update'>
-yum -y install yum-plugin-fastestmirror.noarch
 yum -y update
 yum -y downgrade libselinux nss-softokn-freebl libselinux-utils
 yum -y install cloud-init

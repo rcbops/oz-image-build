@@ -10,6 +10,9 @@
     <url>http://mirror.rackspace.com/centos/6.0/os/x86_64/</url>
   </install>
  </os>
+ <packages>
+   <package name='yum-plugin-fastestmirror.noarch'/>
+ </packages>
  <commands>
    <command name='console'>
 sed -i 's/ rhgb//g' /boot/grub/grub.conf
@@ -17,7 +20,6 @@ sed -i 's/ quiet//g' /boot/grub/grub.conf
    </command>
    <command name='update'>
 yum -y update
-yum -y install yum-plugin-fastestmirror.noarch
 yum clean all
 sed -i '/^HWADDR/d' /etc/sysconfig/network-scripts/ifcfg-eth0
 echo -n > /etc/udev/rules.d/70-persistent-net.rules

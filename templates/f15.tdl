@@ -10,13 +10,15 @@
     <url>http://mirror.rackspace.com/fedora/releases/15/Fedora/x86_64/os/</url>
   </install>
  </os>
+ <packages>
+  <package name='yum-plugin-fastestmirror.noarch'/>
+ </packages>
  <commands>
    <command name='console'>
 sed -i 's/rhgb quiet/console=ttyS0/' /boot/grub/grub.conf
    </command>
    <command name='update'>
 yum -y update
-yum -y install yum-plugin-fastestmirror.noarch
 yum clean all
    </command>
    <command name='setup-rc-local'>
