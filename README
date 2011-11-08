@@ -1,5 +1,5 @@
 Image Build
-
+-----------
 1) Install oz
     apt-get install oz # Ubuntu
     yum install oz # RedHat/CentOS
@@ -10,3 +10,11 @@ Image Build
     zcat distro.img.gz | keyglance <admin user> <admin password> add name="<IMAGE NAME>" container_format=bare disk_format=raw is_Public="True"
 5) Launch an instance and enjoy
 
+Current RCB OpenStack Image List
+--------------------------------
+CentOS 6.0 X86_64	http://c250663.r63.cf1.rackcdn.com/centos60_x86_64.img.gz
+Fedora 15 X86_64	http://c250663.r63.cf1.rackcdn.com/Fedora15_x86_64.img.gz
+Fedora 16 X86_64	http://c250663.r63.cf1.rackcdn.com/Fedora16_x86_64.img.gz
+Ubuntu 10.04		http://c250663.r63.cf1.rackcdn.com/ubuntu-10.04-server-uec-amd64-multinic.tar.gz
+Ubuntu 10.10		http://c250663.r63.cf1.rackcdn.com/ubuntu-10.10-server-uec-amd64-multinic.tar.gz
+Ubuntu 11.04		http://c250663.r63.cf1.rackcdn.com/ubuntu-11.04-server-uec-amd64-multinic.tar.gz
