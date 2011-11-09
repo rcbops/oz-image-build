@@ -78,9 +78,9 @@ function build {
 # TODO: if the script doesn't exist then call pwgen, change it
 # in the template, and then build the image while reporting
 # the root password to the caller of the script
-if [ -f $BASEDIR/fixup-root-passwords.sh ]; then
+if [ -f $BASE_DIR/fixup-root-passwords.sh ]; then
     echo "fixing up root paswords in templates/"
-    $BASEDIR/fixup-root-passwords.sh
+    $BASE_DIR/fixup-root-passwords.sh
 fi
 
 case "$1" in
