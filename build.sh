@@ -79,6 +79,7 @@ function build {
 # in the template, and then build the image while reporting
 # the root password to the caller of the script
 if [ -f $BASEDIR/fixup-root-passwords.sh ]; then
+    echo "fixing up root paswords in templates/"
     $BASEDIR/fixup-root-passwords.sh
 fi
 
