@@ -40,7 +40,7 @@ function build {
     fi
 
     echo "Starting the build of $IMAGE_NAME from $LOCAL_IMAGES/$TEMPLATE.tdl.  This will take a while Shep!"
-    /usr/bin/oz-install -c $LOCAL_TEMPLATES/$CONFIG_FILE -d2 -x $LOCAL_TEMPLATES/$TEMPLATE.xml -p -u $LOCAL_TEMPLATES/$TEMPLATE.tdl
+    /usr/bin/oz-install -c $LOCAL_TEMPLATES/$CONFIG_FILE -d3 -x $LOCAL_TEMPLATES/$TEMPLATE.xml -p -u $LOCAL_TEMPLATES/$TEMPLATE.tdl
     if [ $? -eq 0 ]; then
         echo "build successfull"
         echo -n "removing old image $IMAGE_NAME..."
