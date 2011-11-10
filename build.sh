@@ -15,6 +15,7 @@ function usage {
     echo "f16      :  Fedora 16 X86_64 image"    
     echo "centos60 :  CentOS 6.1 X86_64 image"
     echo "  rhel56 :  RedHat 5.6 X86_64 image"
+    echo "  rhel61 :  RedHat 6.1 X86_64 image"
     echo ""
 }
 
@@ -95,6 +96,9 @@ case "$1" in
         ;;
     rhel56)
         build rhel56 "rhel56_x86_64.img" "rhel56_x86_64.dsk"
+        ;;
+    rhel61)
+        build rhel61 "rhel61_x86_64.img" "rhel61_x86_64.dsk"
         ;;
     help)
         usage
