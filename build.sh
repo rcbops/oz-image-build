@@ -20,6 +20,8 @@ function usage {
     echo "centos60 :  CentOS 6.1 X86_64 image"
     echo "  rhel56 :  RedHat 5.6 X86_64 image"
     echo ""
+    echo "Set OZ_DEBUG to an integer between 1-4 for additional information"
+    echo "On the status of the build"
 }
 
 function build {
