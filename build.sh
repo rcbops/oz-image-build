@@ -4,6 +4,7 @@ LIBVIRT="/var/lib/libvirt/images/"
 BASE_DIR=$(dirname $0)
 LOCAL_IMAGES="$BASE_DIR/images"
 LOCAL_TEMPLATES="$BASE_DIR/templates"
+LOCAL_PUBLISH="$BASE_DIR/publish"
 
 if [ -z $OZ_DEBUG ]; then
     OZ_DEBUG=0
@@ -32,12 +33,17 @@ function build {
     CONFIG_FILE=$4
 
     # do a little error checking
-    if [ ! -d $LOCAL_IMAGES ]; then
+    if [ ! -d "$LOCAL_IMAGES" ]; then
         echo "Creating images director $LOCAL_IMAGES"
-        mkdir $LOCAL_IMAGES
+        mkdir "$LOCAL_IMAGES"
     fi
 
-    if [ ! -f $LOCAL_TEMPLATES/$TEMPLATE.tdl ]; then
+    if [ ! -d "$LOCAL_PUBLISH" ]; then
+        echo "Creating publish directory $LOCAL_PUBLISH"
+        mkdir "$LOCAL_PUBLISH"
+    fi
+
+    if [ ! -f "$LOCAL_TEMPLATES/$TEMPLATE.tdl" ]; then
         echo "Error!  The template $LOCAL_TEMPLATES/$TEMPLATE.tdl does not exist."
         exit
     fi
@@ -47,11 +53,11 @@ function build {
     fi
 
     echo "Starting the build of $IMAGE_NAME from $LOCAL_IMAGES/$TEMPLATE.tdl.  This will take a while Shep!"
-    /usr/bin/oz-install -c $LOCAL_TEMPLATES/$CONFIG_FILE -d$OZ_DEBUG -x $LOCAL_TEMPLATES/$TEMPLATE.xml -p -u $LOCAL_TEMPLATES/$TEMPLATE.tdl
+    /usr/bin/oz-install -c "$LOCAL_TEMPLATES/$CONFIG_FILE" -d$OZ_DEBUG -x "$LOCAL_TEMPLATES/$TEMPLATE.xml" -p -u "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
     if [ $? -eq 0 ]; then
         echo "build successfull"
         echo -n "removing old image $IMAGE_NAME..."
-        rm -f $LOCAL_IMAGES/$IMAGE_NAME
+        rm -f "$LOCAL_IMAGES/$IMAGE_NAME"
         if [ $? -ne 0 ]; then
             echo "failed"
             exit $?
@@ -59,7 +65,7 @@ function build {
         echo "done"
 
         echo -n "converting raw disk to qcow..."
-        qemu-img convert -O qcow2 $LIBVIRT/$DISK_NAME $LOCAL_IMAGES/$IMAGE_NAME
+        qemu-img convert -O qcow2 "$LIBVIRT/$DISK_NAME" "$LOCAL_IMAGES/$IMAGE_NAME"
         if [ $? -ne 0 ]; then
             echo "failed"
             exit $?
@@ -67,10 +73,10 @@ function build {
         echo "done."
 
         echo -n "compressing the compressed qcow - trust me - it does work..."
-        gzip -c $LOCAL_IMAGES/$IMAGE_NAME > $LOCAL_IMAGES/$IMAGE_NAME.gz
+        gzip -c "$LOCAL_IMAGES/$IMAGE_NAME" > "$LOCAL_PUBLISH/$IMAGE_NAME.gz"
         echo "done."
 
-        echo "Build complete.  Your image is located at $LOCAL_IMAGES/$IMAGE_NAME"
+        echo "Build complete.  Your image is located at $LOCAL_PUBLISH/$IMAGE_NAME.gz"
     else
         echo "Build failed"
     fi
@@ -85,7 +91,7 @@ function build {
 # TODO: if the script doesn't exist then call pwgen, change it
 # in the template, and then build the image while reporting
 # the root password to the caller of the script
-if [ -f $BASE_DIR/fixup-root-passwords.sh ]; then
+if [ -f "$BASE_DIR/fixup-root-passwords.sh" ]; then
     echo "fixing up root paswords in templates/"
     $BASE_DIR/fixup-root-passwords.sh
 fi
