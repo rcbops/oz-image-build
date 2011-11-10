@@ -5,6 +5,10 @@ BASE_DIR=$(dirname $0)
 LOCAL_IMAGES="$BASE_DIR/images"
 LOCAL_TEMPLATES="$BASE_DIR/templates"
 
+if [ -z $OZ_DEBUG ]; then
+    OZ_DEBUG=0
+fi
+
 function usage {
     echo "Usage"
     echo "-----"
@@ -17,6 +21,8 @@ function usage {
     echo "  rhel56 :  RedHat 5.6 X86_64 image"
     echo "  rhel61 :  RedHat 6.1 X86_64 image"
     echo ""
+    echo "Set OZ_DEBUG to an integer between 1-4 for additional information"
+    echo "On the status of the build"
 }
 
 function build {
@@ -41,7 +47,7 @@ function build {
     fi
 
     echo "Starting the build of $IMAGE_NAME from $LOCAL_IMAGES/$TEMPLATE.tdl.  This will take a while Shep!"
-    /usr/bin/oz-install -c $LOCAL_TEMPLATES/$CONFIG_FILE -d3 -x $LOCAL_TEMPLATES/$TEMPLATE.xml -p -u $LOCAL_TEMPLATES/$TEMPLATE.tdl
+    /usr/bin/oz-install -c $LOCAL_TEMPLATES/$CONFIG_FILE -d$OZ_DEBUG -x $LOCAL_TEMPLATES/$TEMPLATE.xml -p -u $LOCAL_TEMPLATES/$TEMPLATE.tdl
     if [ $? -eq 0 ]; then
         echo "build successfull"
         echo -n "removing old image $IMAGE_NAME..."
