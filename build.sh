@@ -98,7 +98,7 @@ case "$1" in
         build rhel56 "rhel56_x86_64.img" "rhel56_x86_64.dsk"
         ;;
     rhel61)
-        build rhel61 "rhel61_x86_64.img" "rhel61_x86_64.dsk"
+        build rhel61 "rhel61_x86_64.img" "rhel61_x86_64.dsk" "rhel61.oz.cfg"
         ;;
     help)
         usage

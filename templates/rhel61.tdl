@@ -3,20 +3,22 @@
  <description>RedHat 6.1 x86_64 template</description>
  <os>
   <name>RHEL-6</name>
-  <version>U1</version>
+  <version>1</version>
   <arch>x86_64</arch>
   <rootpw>ROOT-PW_CHANGE-ME!!!</rootpw>
   <install type='url'>
     <url>ftp://kickstart.rackspace.com/redhat/rhel61_64/</url>
   </install>
  </os>
- <packages>
-    <package name='yum-plugin-fastestmirror.noarch'/>
- </packages>
  <commands>
+   <command name='console'>
+sed -i 's/ rhgb//g' /boot/grub/grub.conf
+sed -i 's/ quiet//g' /boot/grub/grub.conf
+   </command>
    <command name='update'>
-yum -y update
-yum clean all
+sed -i '/^HWADDR/d' /etc/sysconfig/network-scripts/ifcfg-eth0
+echo -n > /etc/udev/rules.d/70-persistent-net.rules
+echo -n > /lib/udev/rules.d/75-persistent-net-generator.rules
    </command>
    <command name='setup-rc-local'>
  
