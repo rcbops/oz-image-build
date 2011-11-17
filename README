@@ -6,7 +6,7 @@ Image Build
 2) Modify template file in templates/ and change the <rootpw> section in the .tdl for the distribution you want to modify
 3) build the image
     ./build.sh f16 # will built a fedora 16 image
-4) Copy the dsitro.img.gz file to your nova infra node and add it to glance
+4) Copy the distro.img.gz file to your nova infra node and add it to glance
     zcat distro.img.gz | keyglance <admin user> <admin password> add name="<IMAGE NAME>" container_format=bare disk_format=raw is_Public="True"
 5) Launch an instance and enjoy
 
