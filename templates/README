@@ -1,0 +1,2 @@
+The RHEL images require a valid RHEL mirror.  The mirror listed for the RHEL
+images is not valid and needs to be configured to your own mirror.
