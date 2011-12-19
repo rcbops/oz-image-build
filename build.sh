@@ -16,14 +16,17 @@ function usage {
     echo ""
     echo "build.sh <type>"
     echo ""
-    echo "f15      :  Fedora 15 X86_64 image"
-    echo "f16      :  Fedora 16 X86_64 image"    
-    echo "centos60 :  CentOS 6.1 X86_64 image"
-    echo "  rhel56 :  RedHat 5.6 X86_64 image"
-    echo "  rhel61 :  RedHat 6.1 X86_64 image"
+    echo "            f15 :  Fedora 15 X86_64 10GB image"
+    echo "            f16 :  Fedora 16 X86_64 10GB image"    
+    echo "       centos60 :  CentOS 6.1 X86_64 10GB image"
+    echo "         rhel56 :  RedHat 5.6 X86_64 10GB image"
+    echo "         rhel61 :  RedHat 6.1 X86_64 10GB image"
+    echo " ubuntu-lucid60 :  ubuntu-lucid X86_64 60GB image"
+    echo " ubuntu-lucid80 :  ubuntu-lucid X86_64 80GB image"
+    echo "ubuntu-lucid120 :  ubuntu-lucid X86_64 120GB image"
     echo ""
     echo "Set OZ_DEBUG to an integer between 1-4 for additional information"
-    echo "On the status of the build"
+    echo "on the status of the build"
 }
 
 function build {
@@ -112,6 +115,15 @@ case "$1" in
     rhel61)
         build rhel61 "rhel61_x86_64.img" "rhel61_x86_64.dsk" "rhel61.oz.cfg"
         ;;
+    ubuntu-lucid120)
+        build ubuntu-lucid120 "ubuntu-lucid_x86_64_120G.img" "ubuntu-lucid_x86_64_120G.dsk" "ubuntu-lucid.oz.cfg"
+	;;
+    ubuntu-lucid80)
+        build ubuntu-lucid80 "ubuntu-lucid_x86_64_80G.img" "ubuntu-lucid_x86_64_80G.dsk" "ubuntu-lucid.oz.cfg"
+	;;
+    ubuntu-lucid60)
+        build ubuntu-lucid60 "ubuntu-lucid_x86_64_60G.img" "ubuntu-lucid_x86_64_60G.dsk" "ubuntu-lucid.oz.cfg"
+	;;
     help)
         usage
         exit
