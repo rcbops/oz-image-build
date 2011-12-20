@@ -81,6 +81,7 @@ function build {
 
         echo -n "compressing the compressed qcow - trust me - it does work..."
         gzip -c "$LOCAL_IMAGES/$IMAGE_NAME" > "$LOCAL_PUBLISH/$IMAGE_NAME.gz"
+        rm -f "$LOCAL_IMAGES/$IMAGE_NAME"
         echo "done."
 
         echo "Build complete.  Your image is located at $LOCAL_PUBLISH/$IMAGE_NAME.gz"
