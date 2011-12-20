@@ -24,6 +24,8 @@ function usage {
     echo " ubuntu-lucid60 :  ubuntu-lucid X86_64 60GB image"
     echo " ubuntu-lucid80 :  ubuntu-lucid X86_64 80GB image"
     echo "ubuntu-lucid120 :  ubuntu-lucid X86_64 120GB image"
+    echo "ubuntu-lucid160 :  ubuntu-lucid X86_64 160GB image"
+    echo "ubuntu-lucid320 :  ubuntu-lucid X86_64 320GB image"
     echo ""
     echo "Set OZ_DEBUG to an integer between 1-4 for additional information"
     echo "on the status of the build"
@@ -52,7 +54,7 @@ function build {
     fi
 
     if [ -z $CONFIG_FILE ]; then
-        CONFIG_FILE="/etc/oz/oz.cfg"
+        CONFIG_FILE="$LOCAL_TEMPLATES/oz.cfg"
     fi
 
     echo "Starting the build of $IMAGE_NAME from $LOCAL_IMAGES/$TEMPLATE.tdl.  This will take a while Shep!"
@@ -123,6 +125,12 @@ case "$1" in
 	;;
     ubuntu-lucid60)
         build ubuntu-lucid60 "ubuntu-lucid_x86_64_60G.img" "ubuntu-lucid_x86_64_60G.dsk" "ubuntu-lucid.oz.cfg"
+	;;
+    ubuntu-lucid160)
+        build ubuntu-lucid160 "ubuntu-lucid_x86_64_160G.img" "ubuntu-lucid_x86_64_160G.dsk" "ubuntu-lucid.oz.cfg"
+	;;
+    ubuntu-lucid320)
+        build ubuntu-lucid320 "ubuntu-lucid_x86_64_320G.img" "ubuntu-lucid_x86_64_320G.dsk" "ubuntu-lucid.oz.cfg"
 	;;
     help)
         usage
