@@ -1,4 +1,4 @@
-TARGETS = f15 f16 centos60 rhel56 rhel60 ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320
+TARGETS = f15 f16 centos60 rhel56 rhel61 ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320
 
 all:
 	@echo "Usage"
