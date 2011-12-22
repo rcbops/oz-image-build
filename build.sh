@@ -71,17 +71,12 @@ function build {
         fi
         echo "done"
 
-        echo -n "converting raw disk to qcow..."
-        qemu-img convert -O qcow2 "$LIBVIRT/$DISK_NAME" "$LOCAL_IMAGES/$IMAGE_NAME"
+        echo -n "converting raw disk to compressed qcow..."
+        qemu-img convert -c -O qcow2 "$LIBVIRT/$DISK_NAME" "$LOCAL_PUBLISH/$IMAGE_NAME"
         if [ $? -ne 0 ]; then
             echo "failed"
             exit $?
         fi
-        echo "done."
-
-        echo -n "compressing the compressed qcow - trust me - it does work..."
-        gzip -c "$LOCAL_IMAGES/$IMAGE_NAME" > "$LOCAL_PUBLISH/$IMAGE_NAME.gz"
-        rm -f "$LOCAL_IMAGES/$IMAGE_NAME"
         echo "done."
 
         echo "Build complete.  Your image is located at $LOCAL_PUBLISH/$IMAGE_NAME.gz"
