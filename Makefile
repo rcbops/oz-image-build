@@ -1,5 +1,4 @@
 TARGETS = f15 f16 centos60 rhel56 rhel60 ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320
-TARGET_UPLOADS = f15-upload f16-upload centos60-upload rhel56-upload rhel60-upload ubuntu-lucid60-upload ubuntu-lucid80-upload ubuntu-lucid120-upload ubuntu-lucid160-upload ubuntu-lucid320-upload
 
 all:
 	@echo "Usage"
@@ -11,6 +10,8 @@ all:
 	@echo ""
 	@echo "Set the env variable OZ_DEBUG to an integer between 1-4 for additional information"
 	@echo "on the status of the build"
+
+build-all:	$(TARGETS)
 
 f15-upload:	f15
 	../push.sh put publish/fedora15_x86_64.qcow2 "RCB OPS" fedora15_x86_64.qcow2
