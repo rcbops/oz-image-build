@@ -12,14 +12,14 @@ Current RCB OpenStack Image List (built images for deployment)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 RedHat 5 Update 6    http://c250663.r63.cf1.rackcdn.com/rhel56_x86_64.img.gz
 CentOS 6.0 X86_64    http://c250663.r63.cf1.rackcdn.com/centos60_x86_64.img.gz
-Fedora 15 X86_64     http://c250663.r63.cf1.rackcdn.com/fedora15_x86_64.img.gz
+Fedora 15 X86_64     http://c250663.r63.cf1.rackcdn.com/fedora15_x86_64.qcow2
 Fedora 16 X86_64     http://c250663.r63.cf1.rackcdn.com/fedora16_x86_64.img.gz
 Ubuntu 10.04         http://c250663.r63.cf1.rackcdn.com/ubuntu-10.04-server-uec-amd64-multinic.tar.gz
-Ubuntu 10.04 (60GB)  http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_60G.img.gz
-Ubuntu 10.04 (80GB)  http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_80G.img.gz
-Ubuntu 10.04 (120GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_120G.img.gz
-Ubuntu 10.04 (160GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_160G.img.gz
-Ubuntu 10.04 (320GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_320G.img.gz
+Ubuntu 10.04 (60GB)  http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_60G.qcow2
+Ubuntu 10.04 (80GB)  http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_80G.qcow2
+Ubuntu 10.04 (120GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_120G.qcow2
+Ubuntu 10.04 (160GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_160G.qcow2
+Ubuntu 10.04 (320GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-lucid_x86_64_320G.qcow2
 Ubuntu 10.10         http://c250663.r63.cf1.rackcdn.com/ubuntu-10.10-server-uec-amd64-multinic.tar.gz
 Ubuntu 11.04         http://c250663.r63.cf1.rackcdn.com/ubuntu-11.04-server-uec-amd64-multinic.tar.gz
 ttylinux             http://c250663.r63.cf1.rackcdn.com/ttylinux.tgz
