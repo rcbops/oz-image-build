@@ -72,7 +72,7 @@ function build {
         echo "done"
 
         echo -n "converting raw disk to compressed qcow..."
-        qemu-img convert -c -O qcow2 -o preallocation "$LIBVIRT/$DISK_NAME" "$LOCAL_PUBLISH/$IMAGE_NAME"
+        qemu-img convert -c -O qcow2 -o preallocation=metadata "$LIBVIRT/$DISK_NAME" "$LOCAL_PUBLISH/$IMAGE_NAME"
         if [ $? -ne 0 ]; then
             echo "failed"
             exit $?
