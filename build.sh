@@ -101,34 +101,34 @@ fi
 
 case "$1" in
     f16)
-        build f16 "fedora16_x86_64.img" "fedora16_x86_64.dsk"
+        build f16 "fedora16_x86_64.qcow2" "fedora16_x86_64.dsk"
         ;;
     f15)
-        build f15 "fedora15_x86_64.img" "fedora15_x86_64.dsk"
+        build f15 "fedora15_x86_64.qcow2" "fedora15_x86_64.dsk"
         ;;
     centos60)
-        build centos60 "centos60_x86_64.img" "centos60_x86_64.dsk" "centos60.oz.cfg"
+        build centos60 "centos60_x86_64.qcow2" "centos60_x86_64.dsk" "centos60.oz.cfg"
         ;;
     rhel56)
-        build rhel56 "rhel56_x86_64.img" "rhel56_x86_64.dsk"
+        build rhel56 "rhel56_x86_64.qcow2" "rhel56_x86_64.dsk"
         ;;
     rhel61)
-        build rhel61 "rhel61_x86_64.img" "rhel61_x86_64.dsk" "rhel61.oz.cfg"
+        build rhel61 "rhel61_x86_64.qcow2" "rhel61_x86_64.dsk" "rhel61.oz.cfg"
         ;;
     ubuntu-lucid120)
-        build ubuntu-lucid120 "ubuntu-lucid_x86_64_120G.img" "ubuntu-lucid_x86_64_120G.dsk" "ubuntu-lucid.oz.cfg"
+        build ubuntu-lucid120 "ubuntu-lucid_x86_64_120G.qcow2" "ubuntu-lucid_x86_64_120G.dsk" "ubuntu-lucid.oz.cfg"
 	;;
     ubuntu-lucid80)
-        build ubuntu-lucid80 "ubuntu-lucid_x86_64_80G.img" "ubuntu-lucid_x86_64_80G.dsk" "ubuntu-lucid.oz.cfg"
+        build ubuntu-lucid80 "ubuntu-lucid_x86_64_80G.qcow2" "ubuntu-lucid_x86_64_80G.dsk" "ubuntu-lucid.oz.cfg"
 	;;
     ubuntu-lucid60)
-        build ubuntu-lucid60 "ubuntu-lucid_x86_64_60G.img" "ubuntu-lucid_x86_64_60G.dsk" "ubuntu-lucid.oz.cfg"
+        build ubuntu-lucid60 "ubuntu-lucid_x86_64_60G.qcow2" "ubuntu-lucid_x86_64_60G.dsk" "ubuntu-lucid.oz.cfg"
 	;;
     ubuntu-lucid160)
-        build ubuntu-lucid160 "ubuntu-lucid_x86_64_160G.img" "ubuntu-lucid_x86_64_160G.dsk" "ubuntu-lucid.oz.cfg"
+        build ubuntu-lucid160 "ubuntu-lucid_x86_64_160G.qcow2" "ubuntu-lucid_x86_64_160G.dsk" "ubuntu-lucid.oz.cfg"
 	;;
     ubuntu-lucid320)
-        build ubuntu-lucid320 "ubuntu-lucid_x86_64_320G.img" "ubuntu-lucid_x86_64_320G.dsk" "ubuntu-lucid.oz.cfg"
+        build ubuntu-lucid320 "ubuntu-lucid_x86_64_320G.qcow2" "ubuntu-lucid_x86_64_320G.dsk" "ubuntu-lucid.oz.cfg"
 	;;
     help)
         usage
