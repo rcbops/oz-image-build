@@ -7,7 +7,7 @@
   <arch>x86_64</arch>
   <rootpw>ROOT-PW_CHANGE-ME!!!</rootpw>
   <install type='url'>
-    <url>http://mirror.rackspace.com/centos/6.0/os/x86_64/</url>
+    <url>http://mirror.rackspace.com/centos/6/os/x86_64/</url>
   </install>
  </os>
  <packages>
