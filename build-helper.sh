@@ -36,9 +36,11 @@ function build {
         CONFIG_FILE="$LOCAL_TEMPLATES/oz.cfg"
     fi
 
-    LIBVIRT="`cat $LOCAL_TEMPLATES/$CONFIG_FILE | grep output_dir | awk '{print $3}'`"
+    if [ -f "$LOCAL_TEMPLATES/$CONFIG_FILE" ]; then
+        LIBVIRT="`cat "$LOCAL_TEMPLATES/$CONFIG_FILE" | grep output_dir | awk '{print $3}'`"
+    fi
 
-    echo "Starting the build of $IMAGE_NAME from $LOCAL_IMAGES/$TEMPLATE.tdl.  This will take a while Shep!"
+    echo "Starting the build of $IMAGE_NAME from $LOCAL_TEMPLATES/$TEMPLATE.tdl.  This will take a while Shep!"
     /usr/bin/oz-install -c "$LOCAL_TEMPLATES/$CONFIG_FILE" -d$OZ_DEBUG -x "$LOCAL_TEMPLATES/$TEMPLATE.xml" -p -u "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
     if [ $? -eq 0 ]; then
         echo "build successfull"
