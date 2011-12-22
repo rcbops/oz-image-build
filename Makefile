@@ -15,8 +15,10 @@ all:
 f15-upload:	f15
 	../push.sh put publish/fedora15_x86_64.qcow2 "RCB OPS" fedora15_x86_64.qcow2
 
-f15:
+f15-build:
 	./build-helper.sh f15 "fedora15_x86_64.qcow2" "fedora15_x86_64.dsk"
+
+f15:	f15-build f15-upload
 
 centos60-upload:	centos60
 	../push.sh put publish/centos60_x86_64.qcow2 "RCB OPS" centos60_x86_64.qcow2
