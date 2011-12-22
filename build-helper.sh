@@ -33,7 +33,7 @@ function build {
     fi
 
     if [ -f "$BASE_DIR/fixup-root-passwords.sh" ]; then
-        echo "fixing up root paswords in templates/"
+        echo "fixing up root paswords in $LOCAL_TEMPLATES/$TEMPLATE.tdl"
         $BASE_DIR/fixup-root-passwords.sh "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
     fi
 
