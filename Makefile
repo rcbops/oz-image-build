@@ -1,4 +1,5 @@
 TARGETS = f15 f16 centos60 rhel56 rhel60 ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320
+TARGET_UPLOADS = f15-upload f16-upload centos60-upload rhel56-upload rhel60-upload ubuntu-lucid60-upload ubuntu-lucid80-upload ubuntu-lucid120-upload ubuntu-lucid160-upload ubuntu-lucid320-upload
 
 all:
 	@echo "Usage"
