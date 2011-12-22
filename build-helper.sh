@@ -32,6 +32,12 @@ function build {
         exit
     fi
 
+    if [ -f "$BASE_DIR/fixup-root-passwords.sh" ]; then
+        echo "fixing up root paswords in templates/"
+        $BASE_DIR/fixup-root-passwords.sh "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
+    fi
+
+
     if [ -z $CONFIG_FILE ]; then
         CONFIG_FILE="$LOCAL_TEMPLATES/oz.cfg"
     fi
@@ -71,11 +77,6 @@ function build {
         exit 1
     fi
 }
-
-if [ -f "$BASE_DIR/fixup-root-passwords.sh" ]; then
-    echo "fixing up root paswords in templates/"
-    $BASE_DIR/fixup-root-passwords.sh
-fi
 
 build $1 $2 $3 $4
 exit 0
