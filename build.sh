@@ -63,23 +63,28 @@ function build {
     /usr/bin/oz-install -c "$LOCAL_TEMPLATES/$CONFIG_FILE" -d$OZ_DEBUG -x "$LOCAL_TEMPLATES/$TEMPLATE.xml" -p -u "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
     if [ $? -eq 0 ]; then
         echo "build successfull"
-        echo -n "removing old image $IMAGE_NAME..."
-        rm -f "$LOCAL_IMAGES/$IMAGE_NAME"
-        if [ $? -ne 0 ]; then
-            echo "failed"
-            exit $?
-        fi
-        echo "done"
 
         echo -n "converting raw disk to compressed qcow..."
-        qemu-img convert -c -O qcow2 -o preallocation=metadata "$LIBVIRT/$DISK_NAME" "$LOCAL_PUBLISH/$IMAGE_NAME"
+        CONVERT_IMG="`echo $DISK_NAME | sed 's/qcow2/dsk/g'`"
+        qemu-img convert -c -O qcow2 "$LIBVIRT/$DISK_NAME" "$LOCAL_PUBLISH/$IMAGE_NAME"
         if [ $? -ne 0 ]; then
             echo "failed"
+            echo "arg1 = $LIBVIRT/$CONVERT_IMG"
+            echo "arg2 = $LOCAL_PUBLISH/$IMAGE_NAME"
             exit $?
         fi
         echo "done."
 
-        echo "Build complete.  Your image is located at $LOCAL_PUBLISH/$IMAGE_NAME.gz"
+        echo -n "removing old image $IMAGE_NAME..."
+        rm -f "$LOCAL_IMAGES/$IMAGE_NAME"
+        if [ $? -ne 0 ]; then
+            echo "failed"
+            echo "arg1 = $LOCAL_IMAGES/$IMAGE_NAME"
+            exit $?
+        fi
+        echo "done"
+
+        echo "Build complete.  Your image is located at $LOCAL_PUBLISH/$IMAGE_NAME"
     else
         echo "Build failed"
     fi
