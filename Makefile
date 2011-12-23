@@ -39,19 +39,19 @@ build-maverick:	$(MAVERICK)
 
 ##### Fedora 15
 f15-upload:	f15-build
-	../push.sh put publish/fedora15_x86_64.qcow2 "RCB OPS" fedora15_x86_64.qcow2
+	@../push.sh put publish/fedora15_x86_64.qcow2 "RCB OPS" fedora15_x86_64.qcow2
 
 f15-build:
-	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  f15 "fedora15_x86_64.qcow2" "fedora15_x86_64.dsk"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  f15 "fedora15_x86_64.qcow2" "fedora15_x86_64.dsk"
 
 f15:	f15-upload
 
 ##### Fedora 16
 f16-upload:	f16-build
-	../push.sh put publish/fedora16_x86_64.qcow2 "RCB OPS" fedora16_x86_64.qcow2
+	@../push.sh put publish/fedora16_x86_64.qcow2 "RCB OPS" fedora16_x86_64.qcow2
 
 f16-build:
-	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  f16 "fedora16_x86_64.qcow2" "fedora16_x86_64.dsk"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  f16 "fedora16_x86_64.qcow2" "fedora16_x86_64.dsk"
 
 f16:	f16-upload
 
