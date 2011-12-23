@@ -27,17 +27,17 @@ function build {
 
     # do a little error checking
     if [ ! -d "$LOCAL_IMAGES" ]; then
-        dl("Creating images directory $LOCAL_IMAGES",1)
+        dl "Creating images directory $LOCAL_IMAGES",1 
         mkdir "$LOCAL_IMAGES"
     fi
 
     if [ ! -d "$LOCAL_PUBLISH" ]; then
-        dl("Creating publish directory $LOCAL_PUBLISH",1)
+        dl "Creating publish directory $LOCAL_PUBLISH",1 
         mkdir "$LOCAL_PUBLISH"
     fi
 
     if [ ! -f "$LOCAL_TEMPLATES/$TEMPLATE.tdl" ]; then
-        dl("Error!  The template file $LOCAL_TEMPLATES/$TEMPLATE.tdl does not exist",0)
+        dl "Error!  The template file $LOCAL_TEMPLATES/$TEMPLATE.tdl does not exist",0 
         exit 1
     fi
 
