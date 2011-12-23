@@ -13,6 +13,11 @@ all:
 	@echo "make <type>"
 	@echo ""
 	@$(foreach var,$(TARGETS),echo $(var);)
+	@echo "build-fedora"
+	@echo "build-centos"
+	@echo "build-rhel"
+	@echo "build-lucid"
+	@echo "build-maverick"
 	@echo ""
 	@echo "Set the env variable OZ_DEBUG to an integer between 1-4 for additional information"
 	@echo "on the status of the build"
