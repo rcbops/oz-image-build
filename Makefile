@@ -69,7 +69,7 @@ centos60-upload:	centos60-build
 
 centos60-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  centos60 "centos60_x86_64.qcow2" "centos60_x86_64.dsk" "centos60.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  centos60 "centos60_x86_64.qcow2" "centos60_x86_64.dsk" "templates/centos60.oz.cfg"
 
 centos60:	centos60-upload
 
@@ -93,7 +93,7 @@ rhel61-upload:	rhel61-build
 
 rhel61-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  rhel61 "rhel61_x86_64.qcow2" "rhel61_x86_64.dsk" "rhel61.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  rhel61 "rhel61_x86_64.qcow2" "rhel61_x86_64.dsk" "templates/rhel61.oz.cfg"
 
 rhel61:	rhel61-upload
 
@@ -105,7 +105,7 @@ ubuntu-lucid60-upload:	ubuntu-lucid60-build
 
 ubuntu-lucid60-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid60 "ubuntu-lucid_x86_64_60G.qcow2" "ubuntu-lucid_x86_64_60G.dsk" "ubuntu-lucid.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid60 "ubuntu-lucid_x86_64_60G.qcow2" "ubuntu-lucid_x86_64_60G.dsk" "templates/ubuntu-lucid.oz.cfg"
 
 ubuntu-lucid60:	ubuntu-lucid60-upload
 
@@ -117,7 +117,7 @@ ubuntu-lucid80-upload:	ubuntu-lucid80-build
 
 ubuntu-lucid80-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid80 "ubuntu-lucid_x86_64_80G.qcow2" "ubuntu-lucid_x86_64_80G.dsk" "ubuntu-lucid.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid80 "ubuntu-lucid_x86_64_80G.qcow2" "ubuntu-lucid_x86_64_80G.dsk" "templates/ubuntu-lucid.oz.cfg"
 
 ubuntu-lucid80:	ubuntu-lucid80-upload
 
@@ -129,7 +129,7 @@ ubuntu-lucid120-upload:	ubuntu-lucid120-build
 
 ubuntu-lucid120-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid120 "ubuntu-lucid_x86_64_120G.qcow2" "ubuntu-lucid_x86_64_120G.dsk" "ubuntu-lucid.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid120 "ubuntu-lucid_x86_64_120G.qcow2" "ubuntu-lucid_x86_64_120G.dsk" "templates/ubuntu-lucid.oz.cfg"
 
 ubuntu-lucid120:	ubuntu-lucid120-upload
 
@@ -141,7 +141,7 @@ ubuntu-lucid160-upload:	ubuntu-lucid160-build
 
 ubuntu-lucid160-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid160 "ubuntu-lucid_x86_64_160G.qcow2" "ubuntu-lucid_x86_64_160G.dsk" "ubuntu-lucid.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid160 "ubuntu-lucid_x86_64_160G.qcow2" "ubuntu-lucid_x86_64_160G.dsk" "templates/ubuntu-lucid.oz.cfg"
 
 ubuntu-lucid160:	ubuntu-lucid160-upload
 
@@ -153,7 +153,7 @@ ubuntu-lucid320-upload:	ubuntu-lucid320-build
 
 ubuntu-lucid320-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid320 "ubuntu-lucid_x86_64_320G.qcow2" "ubuntu-lucid_x86_64_320G.dsk" "ubuntu-lucid.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh  ubuntu-lucid320 "ubuntu-lucid_x86_64_320G.qcow2" "ubuntu-lucid_x86_64_320G.dsk" "templates/ubuntu-lucid.oz.cfg"
 
 ubuntu-lucid320:	ubuntu-lucid320-upload
 
@@ -165,7 +165,7 @@ ubuntu-maverick60-upload:	ubuntu-maverick60-build
 
 ubuntu-maverick60-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick60 "ubuntu-maverick_x86_64_60G.qcow2" "ubuntu-maverick_x86_64_60G.dsk" "ubuntu-maverick.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick60 "ubuntu-maverick_x86_64_60G.qcow2" "ubuntu-maverick_x86_64_60G.dsk" "templates/ubuntu-maverick.oz.cfg"
 
 ubuntu-maverick60:	ubuntu-maverick60-upload
 
@@ -177,7 +177,7 @@ ubuntu-maverick80-upload:	ubuntu-maverick80-build
 
 ubuntu-maverick80-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick80 "ubuntu-maverick_x86_64_80G.qcow2" "ubuntu-maverick_x86_64_80G.dsk" "ubuntu-maverick.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick80 "ubuntu-maverick_x86_64_80G.qcow2" "ubuntu-maverick_x86_64_80G.dsk" "templates/ubuntu-maverick.oz.cfg"
 
 ubuntu-maverick80:	ubuntu-maverick80-upload
 
@@ -189,7 +189,7 @@ ubuntu-maverick120-upload:	ubuntu-maverick120-build
 
 ubuntu-maverick120-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick120 "ubuntu-maverick_x86_64_120G.qcow2" "ubuntu-maverick_x86_64_120G.dsk" "ubuntu-maverick.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick120 "ubuntu-maverick_x86_64_120G.qcow2" "ubuntu-maverick_x86_64_120G.dsk" "templates/ubuntu-maverick.oz.cfg"
 
 ubuntu-maverick120:	ubuntu-maverick120-upload
 
@@ -201,7 +201,7 @@ ubuntu-maverick160-upload:	ubuntu-maverick160-build
 
 ubuntu-maverick160-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick160 "ubuntu-maverick_x86_64_160G.qcow2" "ubuntu-maverick_x86_64_160G.dsk" "ubuntu-maverick.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick160 "ubuntu-maverick_x86_64_160G.qcow2" "ubuntu-maverick_x86_64_160G.dsk" "templates/ubuntu-maverick.oz.cfg"
 
 ubuntu-maverick160:	ubuntu-maverick160-upload
 
@@ -213,7 +213,7 @@ ubuntu-maverick320-upload:	ubuntu-maverick320-build
 
 ubuntu-maverick320-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick320 "ubuntu-maverick_x86_64_320G.qcow2" "ubuntu-maverick_x86_64_320G.dsk" "ubuntu-maverick.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick320 "ubuntu-maverick_x86_64_320G.qcow2" "ubuntu-maverick_x86_64_320G.dsk" "templates/ubuntu-maverick.oz.cfg"
 
 ubuntu-maverick320:	ubuntu-maverick320-upload
 
@@ -225,7 +225,7 @@ ubuntu-natty60-upload:	ubuntu-natty60-build
 
 ubuntu-natty60-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty60 "ubuntu-natty_x86_64_60G.qcow2" "ubuntu-natty_x86_64_60G.dsk" "ubuntu-natty.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty60 "ubuntu-natty_x86_64_60G.qcow2" "ubuntu-natty_x86_64_60G.dsk" "templates/ubuntu-natty.oz.cfg"
 
 ubuntu-natty60:	ubuntu-natty60-upload
 
@@ -237,7 +237,7 @@ ubuntu-natty80-upload:	ubuntu-natty80-build
 
 ubuntu-natty80-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty80 "ubuntu-natty_x86_64_80G.qcow2" "ubuntu-natty_x86_64_80G.dsk" "ubuntu-natty.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty80 "ubuntu-natty_x86_64_80G.qcow2" "ubuntu-natty_x86_64_80G.dsk" "templates/ubuntu-natty.oz.cfg"
 
 ubuntu-natty80:	ubuntu-natty80-upload
 
@@ -249,7 +249,7 @@ ubuntu-natty120-upload:	ubuntu-natty120-build
 
 ubuntu-natty120-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty120 "ubuntu-natty_x86_64_120G.qcow2" "ubuntu-natty_x86_64_120G.dsk" "ubuntu-natty.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty120 "ubuntu-natty_x86_64_120G.qcow2" "ubuntu-natty_x86_64_120G.dsk" "templates/ubuntu-natty.oz.cfg"
 
 ubuntu-natty120:	ubuntu-natty120-upload
 
@@ -261,7 +261,7 @@ ubuntu-natty160-upload:	ubuntu-natty160-build
 
 ubuntu-natty160-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty160 "ubuntu-natty_x86_64_160G.qcow2" "ubuntu-natty_x86_64_160G.dsk" "ubuntu-natty.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty160 "ubuntu-natty_x86_64_160G.qcow2" "ubuntu-natty_x86_64_160G.dsk" "templates/ubuntu-natty.oz.cfg"
 
 ubuntu-natty160:	ubuntu-natty160-upload
 
@@ -273,6 +273,6 @@ ubuntu-natty320-upload:	ubuntu-natty320-build
 
 ubuntu-natty320-build:
 	@echo "Building $@"
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty320 "ubuntu-natty_x86_64_320G.qcow2" "ubuntu-natty_x86_64_320G.dsk" "ubuntu-natty.oz.cfg"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty320 "ubuntu-natty_x86_64_320G.qcow2" "ubuntu-natty_x86_64_320G.dsk" "templates/ubuntu-natty.oz.cfg"
 
 ubuntu-natty320:	ubuntu-natty320-upload
