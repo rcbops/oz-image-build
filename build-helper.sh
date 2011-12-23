@@ -19,7 +19,7 @@ function dl {
     MSG=$1
     LVL=${2-0}
 
-    if [ $LVL -lt $OZ_DEBUG ]; then
+    if [ $LVL -le $OZ_DEBUG ]; then
         echo "`date`: $LVL: $IMAGE_NAME: $MSG"
     fi
 }
