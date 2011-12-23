@@ -6,6 +6,11 @@ LOCAL_IMAGES="$BASE_DIR/images"
 LOCAL_TEMPLATES="$BASE_DIR/templates"
 LOCAL_PUBLISH="$BASE_DIR/publish"
 
+TEMPLATE=$1
+IMAGE_NAME=$2
+DISK_NAME=$3
+CONFIG_FILE=$4
+
 if [ -z $OZ_DEBUG ]; then
     OZ_DEBUG=0
 fi
@@ -15,15 +20,11 @@ function dl {
     LVL=${2-0}
 
     if [ $LVL -lt $OZ_DEBUG ]; then
-        echo "`date`: $LVL: $MSG"
+        echo "`date`: $LVL: $IMAGE_NAME: $MSG"
     fi
 }
 
 function build {
-    TEMPLATE=$1
-    IMAGE_NAME=$2
-    DISK_NAME=$3
-    CONFIG_FILE=$4
 
     # do a little error checking
     if [ ! -d "$LOCAL_IMAGES" ]; then
@@ -92,5 +93,5 @@ function build {
     fi
 }
 
-build $1 $2 $3 $4
+build
 exit 0
