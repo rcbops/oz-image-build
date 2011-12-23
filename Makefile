@@ -1,4 +1,4 @@
-TARGETS = f15 f16 centos60 rhel56 rhel61 ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320 ubuntu-maverick60
+TARGETS = f15 f16 centos60 rhel56 rhel61 ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320 ubuntu-maverick60 ubuntu-maverick80 ubuntu-maverick120 ubuntu-maverick160 ubuntu-maverick320
 OZ_DEBUG=2
 
 all:
