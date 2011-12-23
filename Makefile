@@ -37,6 +37,8 @@ build-lucid:	$(LUCID)
 
 build-maverick:	$(MAVERICK)
 
+build-natty:	$(NATTY)
+
 
 ##### Fedora 15
 f15-upload:	f15-build
