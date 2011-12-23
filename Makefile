@@ -4,7 +4,7 @@ RHEL = rhel56 rhel61
 LUCID = ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320
 MAVERICK = ubuntu-maverick60 ubuntu-maverick80 ubuntu-maverick120 ubuntu-maverick160 ubuntu-maverick320
 TARGETS = $(FEDORA) $(CENTOS) $(RHEL) $(LUCID) $(MAVERICK)
-OZ_DEBUG=2
+OZ_DEBUG=0
 
 all:
 	@echo "Usage"
