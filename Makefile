@@ -19,6 +19,7 @@ all:
 	@echo "build-rhel"
 	@echo "build-lucid"
 	@echo "build-maverick"
+	@echo "build-natty"
 	@echo ""
 	@echo "Set the env variable OZ_DEBUG to an integer between 1-4 for additional information"
 	@echo "on the status of the build"
