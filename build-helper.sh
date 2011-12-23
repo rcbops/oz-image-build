@@ -14,7 +14,7 @@ function dl {
     MSG=$1
     LVL=${2-0}
 
-    if [ $LVL -gt $OZ_DEBUG ]; then
+    if [ $LVL -lt $OZ_DEBUG ]; then
         echo -n "`date`: $LVL: $MSG"
     fi
 }
