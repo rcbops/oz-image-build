@@ -99,6 +99,6 @@ ubuntu-maverick60-upload:	ubuntu-maverick60-build
 	../push.sh put publish/ubuntu-lucid_x86_64_320G.qcow2 "RCB OPS" ubuntu-lucid_x86_64_320G.qcow2
 
 ubuntu-maverick60-build:
-	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick60 "ubuntu-maverick_x86_64_60G.qcow2" "ubuntu-amverick_x86_64_60G.dsk" "ubuntu-maverick.oz.cfg"
+	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick60 "ubuntu-maverick_x86_64_60G.qcow2" "ubuntu-maverick_x86_64_60G.dsk" "ubuntu-maverick.oz.cfg"
 
 ubuntu-lucid320:	ubuntu-lucid320-upload
