@@ -1,4 +1,4 @@
-TARGETS = f15 f16 centos60 rhel56 rhel61 ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320
+TARGETS = f15 f16 centos60 rhel56 rhel61 ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320 ubuntu-maverick60
 
 all:
 	@echo "Usage"
@@ -90,5 +90,14 @@ ubuntu-lucid320-upload:	ubuntu-lucid320-build
 
 ubuntu-lucid320-build:
 	./build-helper.sh ubuntu-lucid320 "ubuntu-lucid_x86_64_320G.qcow2" "ubuntu-lucid_x86_64_320G.dsk" "ubuntu-lucid.oz.cfg"
+
+ubuntu-lucid320:	ubuntu-lucid320-upload
+
+# MAVERICK
+ubuntu-maverick60-upload:	ubuntu-maverick60-build
+	../push.sh put publish/ubuntu-lucid_x86_64_320G.qcow2 "RCB OPS" ubuntu-lucid_x86_64_320G.qcow2
+
+ubuntu-maverick60-build:
+	./build-helper.sh ubuntu-maverick60 "ubuntu-maverick_x86_64_60G.qcow2" "ubuntu-amverick_x86_64_60G.dsk" "ubuntu-maverick.oz.cfg"
 
 ubuntu-lucid320:	ubuntu-lucid320-upload
