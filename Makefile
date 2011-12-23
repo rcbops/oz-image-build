@@ -1,4 +1,9 @@
-TARGETS = f15 f16 centos60 rhel56 rhel61 ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320 ubuntu-maverick60 ubuntu-maverick80 ubuntu-maverick120 ubuntu-maverick160 ubuntu-maverick320
+FEDORA = f15 f16
+CENTOS = centos60
+RHEL = rhel56 rhel61
+LUCID = ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320
+MAVERICK = ubuntu-maverick60 ubuntu-maverick80 ubuntu-maverick120 ubuntu-maverick160 ubuntu-maverick320
+TARGETS = $(FEDORA) $(CENTOS) $(RHEL) $(LUCID) $(MAVERICK)
 OZ_DEBUG=2
 
 all:
@@ -12,7 +17,18 @@ all:
 	@echo "Set the env variable OZ_DEBUG to an integer between 1-4 for additional information"
 	@echo "on the status of the build"
 
+# GENERIC BUILD TARGETS
 build-all:	$(TARGETS)
+
+build-fedora:	$(FEDORA)
+
+build-centos:	$(CENTOS)
+
+build-rhel:	$(RHEL)
+
+build-lucid:	$(LUCID)
+
+build-maverick:	$(MAVERICK)
 
 ##### Fedora 15
 f15-upload:	f15-build
