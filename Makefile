@@ -46,7 +46,7 @@ rhel56-build:
 rhel56:	rhel56-upload
 
 rhel61-upload:	rhel61-build
-	../push.sh put publish/ "RCB OPS" 
+	../push.sh put publish/rhel61_x86_64.qcow2 "RCB OPS" rhel61_x86_64.qcow2
 
 rhel61-build:
 	./build-helper.sh rhel61 "rhel61_x86_64.qcow2" "rhel61_x86_64.dsk" "rhel61.oz.cfg"
