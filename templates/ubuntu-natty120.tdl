@@ -25,6 +25,8 @@ apt-get clean
 /usr/sbin/useradd stack
 echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 sed -i 's/^user: ubuntu/user: stack/g' /etc/cloud/cloud.cfg
+echo -n > /etc/udev/rules.d/70-persistent-net.rules
+echo -n > /lib/udev/rules.d/75-persistent-net-generator.rules
    </command>
  </commands>
 </template>
