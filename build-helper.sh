@@ -10,6 +10,15 @@ if [ -z $OZ_DEBUG ]; then
     OZ_DEBUG=0
 fi
 
+function dl {
+    MSG=$1
+    LVL=${2-0}
+
+    if [ $LVL -gt $OZ_DEBUG ]; then
+        echo -n "`date`: $LVL: $MSG"
+    fi
+}
+
 function build {
     TEMPLATE=$1
     IMAGE_NAME=$2
@@ -18,62 +27,67 @@ function build {
 
     # do a little error checking
     if [ ! -d "$LOCAL_IMAGES" ]; then
-        echo "Creating images director $LOCAL_IMAGES"
+        dl("Creating images directory $LOCAL_IMAGES",1)
         mkdir "$LOCAL_IMAGES"
     fi
 
     if [ ! -d "$LOCAL_PUBLISH" ]; then
-        echo "Creating publish directory $LOCAL_PUBLISH"
+        dl("Creating publish directory $LOCAL_PUBLISH",1)
         mkdir "$LOCAL_PUBLISH"
     fi
 
     if [ ! -f "$LOCAL_TEMPLATES/$TEMPLATE.tdl" ]; then
-        echo "Error!  The template $LOCAL_TEMPLATES/$TEMPLATE.tdl does not exist."
-        exit
+        dl("Error!  The template file $LOCAL_TEMPLATES/$TEMPLATE.tdl does not exist",0)
+        exit 1
     fi
 
     if [ -f "$BASE_DIR/fixup-root-passwords.sh" ]; then
-        echo "fixing up root paswords in $LOCAL_TEMPLATES/$TEMPLATE.tdl"
-        $BASE_DIR/fixup-root-passwords.sh "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
+        dl("fixing up root paswords in $LOCAL_TEMPLATES/$TEMPLATE.tdl",1)
+        PASS=`$BASE_DIR/fixup-root-passwords.sh "$LOCAL_TEMPLATES/$TEMPLATE.tdl" $OZ_DEBUG`
+        dl("Password for instance is $PASS",0)
     fi
-
 
     if [ -z $CONFIG_FILE ]; then
-        CONFIG_FILE="$LOCAL_TEMPLATES/oz.cfg"
+        if [ -f "$LOCAL_TEMPLATES/oz.cfg" ]; then
+            CONFIG_FILE="$LOCAL_TEMPLATES/oz.cfg"
+        else
+            CONFIG_FILE="/etc/oz/oz.cfg"
+        fi
+        dl("CONFIG_FILE variable empty - setting to $CONFIG_FILE",1)
     fi
 
-    if [ -f "$LOCAL_TEMPLATES/$CONFIG_FILE" ]; then
+    if [ -f "$CONFIG_FILE" ]; then
         LIBVIRT="`cat "$LOCAL_TEMPLATES/$CONFIG_FILE" | grep output_dir | awk '{print $3}'`"
     fi
 
-    echo "Starting the build of $IMAGE_NAME from $LOCAL_TEMPLATES/$TEMPLATE.tdl.  This will take a while Shep!"
+    dl("Starting the build of $IMAGE_NAME ont $DISK_NAME from $LOCAL_TEMPLATES/$TEMPLATE.tdl.  This will take a while Shep!",1)
+    dl("/usr/bin/oz-install -c \"$LOCAL_TEMPLATES/$CONFIG_FILE\" -d$OZ_DEBUG -x \"$LOCAL_TEMPLATES/$TEMPLATE.xml\" -p -u \"$LOCAL_TEMPLATES/$TEMPLATE.tdl\"",2)
     /usr/bin/oz-install -c "$LOCAL_TEMPLATES/$CONFIG_FILE" -d$OZ_DEBUG -x "$LOCAL_TEMPLATES/$TEMPLATE.xml" -p -u "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
     if [ $? -eq 0 ]; then
         echo "build successfull"
 
-        echo -n "converting raw disk to compressed qcow..."
+        dl("converting raw disk to compressed qcow...",1)
         CONVERT_IMG="`echo $DISK_NAME | sed 's/qcow2/dsk/g'`"
         qemu-img convert -c -O qcow2 "$LIBVIRT/$DISK_NAME" "$LOCAL_PUBLISH/$IMAGE_NAME"
         if [ $? -ne 0 ]; then
-            echo "failed"
-            echo "arg1 = $LIBVIRT/$CONVERT_IMG"
-            echo "arg2 = $LOCAL_PUBLISH/$IMAGE_NAME"
+            dl("Image conversion failed",1)
+            dl("arg1 = $LIBVIRT/$CONVERT_IMG",2)
+            dl("arg2 = $LOCAL_PUBLISH/$IMAGE_NAME",2)
             exit $?
         fi
-        echo "done."
+        dl("Image conversion complete",1)
 
-        echo -n "removing old image $IMAGE_NAME..."
+        dl("Removing old image $IMAGE_NAME",1)
         rm -f "$LOCAL_IMAGES/$IMAGE_NAME"
         if [ $? -ne 0 ]; then
-            echo "failed"
-            echo "arg1 = $LOCAL_IMAGES/$IMAGE_NAME"
+            dl("ERROR: Could not delete $LOCAL_IMAGES/$IMAGE_NAME",1)
+            dl("arg1 = $LOCAL_IMAGES/$IMAGE_NAME",2)
             exit $?
         fi
-        echo "done"
-        echo "Build complete.  Your image is located at $LOCAL_PUBLISH/$IMAGE_NAME"
+        dl("Build complete.  Your image is located at $LOCAL_PUBLISH/$IMAGE_NAME",0)
         exit 0
     else
-        echo "Build failed"
+        dl("ERROR: Build failed",0)
         exit 1
     fi
 }
