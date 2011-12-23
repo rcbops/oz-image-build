@@ -3,7 +3,8 @@ CENTOS = centos60
 RHEL = rhel56 rhel61
 LUCID = ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320
 MAVERICK = ubuntu-maverick60 ubuntu-maverick80 ubuntu-maverick120 ubuntu-maverick160 ubuntu-maverick320
-TARGETS = $(FEDORA) $(CENTOS) $(RHEL) $(LUCID) $(MAVERICK)
+NATTY = ubuntu-natty60 ubuntu-natty80 ubuntu-natty120 ubuntu-natty160 ubuntu-natty320
+TARGETS = $(FEDORA) $(CENTOS) $(RHEL) $(LUCID) $(MAVERICK) $(NATTY)
 OZ_DEBUG=0
 
 all:
@@ -169,3 +170,48 @@ ubuntu-maverick320-build:
 	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-maverick320 "ubuntu-maverick_x86_64_320G.qcow2" "ubuntu-maverick_x86_64_320G.dsk" "ubuntu-maverick.oz.cfg"
 
 ubuntu-maverick320:	ubuntu-maverick320-upload
+
+##### NATTY 60G
+ubuntu-natty60-upload:	ubuntu-natty60-build
+	../push.sh put publish/ubuntu-natty_x86_64_60G.qcow2 "RCB OPS" ubuntu-natty_x86_64_60G.qcow2
+
+ubuntu-natty60-build:
+	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty60 "ubuntu-natty_x86_64_60G.qcow2" "ubuntu-natty_x86_64_60G.dsk" "ubuntu-natty.oz.cfg"
+
+ubuntu-natty60:	ubuntu-natty60-upload
+
+##### NATTY 80G
+ubuntu-natty80-upload:	ubuntu-natty80-build
+	../push.sh put publish/ubuntu-natty_x86_64_80G.qcow2 "RCB OPS" ubuntu-natty_x86_64_80G.qcow2
+
+ubuntu-natty80-build:
+	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty80 "ubuntu-natty_x86_64_80G.qcow2" "ubuntu-natty_x86_64_80G.dsk" "ubuntu-natty.oz.cfg"
+
+ubuntu-natty80:	ubuntu-natty80-upload
+
+##### NATTY 1200G
+ubuntu-natty120-upload:	ubuntu-natty120-build
+	../push.sh put publish/ubuntu-natty_x86_64_120G.qcow2 "RCB OPS" ubuntu-natty_x86_64_120G.qcow2
+
+ubuntu-natty120-build:
+	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty120 "ubuntu-natty_x86_64_120G.qcow2" "ubuntu-natty_x86_64_120G.dsk" "ubuntu-natty.oz.cfg"
+
+ubuntu-natty120:	ubuntu-natty120-upload
+
+##### NATTY 160G
+ubuntu-natty160-upload:	ubuntu-natty160-build
+	../push.sh put publish/ubuntu-natty_x86_64_160G.qcow2 "RCB OPS" ubuntu-natty_x86_64_160G.qcow2
+
+ubuntu-natty160-build:
+	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty160 "ubuntu-natty_x86_64_160G.qcow2" "ubuntu-natty_x86_64_160G.dsk" "ubuntu-natty.oz.cfg"
+
+ubuntu-natty160:	ubuntu-natty160-upload
+
+##### NATTY 320G
+ubuntu-natty320-upload:	ubuntu-natty320-build
+	../push.sh put publish/ubuntu-natty_x86_64_320G.qcow2 "RCB OPS" ubuntu-natty_x86_64_320G.qcow2
+
+ubuntu-natty320-build:
+	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty320 "ubuntu-natty_x86_64_320G.qcow2" "ubuntu-natty_x86_64_320G.dsk" "ubuntu-natty.oz.cfg"
+
+ubuntu-natty320:	ubuntu-natty320-upload
