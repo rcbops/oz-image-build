@@ -64,7 +64,7 @@ function build {
     dl "/usr/bin/oz-install -c \"$CONFIG_FILE\" -d$OZ_DEBUG -x \"$LOCAL_TEMPLATES/$TEMPLATE.xml\" -p -u \"$LOCAL_TEMPLATES/$TEMPLATE.tdl\"",2
     /usr/bin/oz-install -c "$CONFIG_FILE" -d$OZ_DEBUG -x "$LOCAL_TEMPLATES/$TEMPLATE.xml" -p -u "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
     if [ $? -eq 0 ]; then
-        echo "build successfull"
+        dl "build successfull",1
 
         dl "converting raw disk to compressed qcow...",1
         CONVERT_IMG="`echo $DISK_NAME | sed 's/qcow2/dsk/g'`"
