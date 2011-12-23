@@ -42,9 +42,9 @@ function build {
     fi
 
     if [ -f "$BASE_DIR/fixup-root-passwords.sh" ]; then
-        dl("fixing up root paswords in $LOCAL_TEMPLATES/$TEMPLATE.tdl",1)
+        dl "fixing up root paswords in $LOCAL_TEMPLATES/$TEMPLATE.tdl",1
         PASS=`$BASE_DIR/fixup-root-passwords.sh "$LOCAL_TEMPLATES/$TEMPLATE.tdl" $OZ_DEBUG`
-        dl("Password for instance is $PASS",0)
+        dl "Password for instance is $PASS",0
     fi
 
     if [ -z $CONFIG_FILE ]; then
@@ -53,41 +53,41 @@ function build {
         else
             CONFIG_FILE="/etc/oz/oz.cfg"
         fi
-        dl("CONFIG_FILE variable empty - setting to $CONFIG_FILE",1)
+        dl "CONFIG_FILE variable empty - setting to $CONFIG_FILE",1
     fi
 
     if [ -f "$CONFIG_FILE" ]; then
         LIBVIRT="`cat "$LOCAL_TEMPLATES/$CONFIG_FILE" | grep output_dir | awk '{print $3}'`"
     fi
 
-    dl("Starting the build of $IMAGE_NAME ont $DISK_NAME from $LOCAL_TEMPLATES/$TEMPLATE.tdl.  This will take a while Shep!",1)
-    dl("/usr/bin/oz-install -c \"$LOCAL_TEMPLATES/$CONFIG_FILE\" -d$OZ_DEBUG -x \"$LOCAL_TEMPLATES/$TEMPLATE.xml\" -p -u \"$LOCAL_TEMPLATES/$TEMPLATE.tdl\"",2)
+    dl "Starting the build of $IMAGE_NAME ont $DISK_NAME from $LOCAL_TEMPLATES/$TEMPLATE.tdl.  This will take a while Shep!",1
+    dl "/usr/bin/oz-install -c \"$LOCAL_TEMPLATES/$CONFIG_FILE\" -d$OZ_DEBUG -x \"$LOCAL_TEMPLATES/$TEMPLATE.xml\" -p -u \"$LOCAL_TEMPLATES/$TEMPLATE.tdl\"",2
     /usr/bin/oz-install -c "$LOCAL_TEMPLATES/$CONFIG_FILE" -d$OZ_DEBUG -x "$LOCAL_TEMPLATES/$TEMPLATE.xml" -p -u "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
     if [ $? -eq 0 ]; then
         echo "build successfull"
 
-        dl("converting raw disk to compressed qcow...",1)
+        dl "converting raw disk to compressed qcow...",1
         CONVERT_IMG="`echo $DISK_NAME | sed 's/qcow2/dsk/g'`"
         qemu-img convert -c -O qcow2 "$LIBVIRT/$DISK_NAME" "$LOCAL_PUBLISH/$IMAGE_NAME"
         if [ $? -ne 0 ]; then
-            dl("Image conversion failed",1)
-            dl("arg1 = $LIBVIRT/$CONVERT_IMG",2)
-            dl("arg2 = $LOCAL_PUBLISH/$IMAGE_NAME",2)
+            dl "Image conversion failed",1
+            dl "arg1 = $LIBVIRT/$CONVERT_IMG",2
+            dl "arg2 = $LOCAL_PUBLISH/$IMAGE_NAME",2
             exit $?
         fi
-        dl("Image conversion complete",1)
+        dl "Image conversion complete",1
 
-        dl("Removing old image $IMAGE_NAME",1)
+        dl "Removing old image $IMAGE_NAME",1
         rm -f "$LOCAL_IMAGES/$IMAGE_NAME"
         if [ $? -ne 0 ]; then
-            dl("ERROR: Could not delete $LOCAL_IMAGES/$IMAGE_NAME",1)
-            dl("arg1 = $LOCAL_IMAGES/$IMAGE_NAME",2)
+            dl "ERROR: Could not delete $LOCAL_IMAGES/$IMAGE_NAME",1
+            dl "arg1 = $LOCAL_IMAGES/$IMAGE_NAME",2
             exit $?
         fi
-        dl("Build complete.  Your image is located at $LOCAL_PUBLISH/$IMAGE_NAME",0)
+        dl "Build complete.  Your image is located at $LOCAL_PUBLISH/$IMAGE_NAME",0
         exit 0
     else
-        dl("ERROR: Build failed",0)
+        dl "ERROR: Build failed",0
         exit 1
     fi
 }
