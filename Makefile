@@ -1,3 +1,7 @@
+OZ_DEBUG=3
+.SUFFIXES = .tdl
+
+# (1) Add new targets here
 CENTOS = centos60_x86_64
 FEDORA = fedora15_x86_64 fedora16_x86_64
 RHEL = rhel56_x86_64 rhel61_x86_64
@@ -14,10 +18,8 @@ ONEIRIC = ubuntu-oneiric_x86_64_120G ubuntu-oneiric_x86_64_160G \
 		ubuntu-oneiric_x86_64_320G ubuntu-oneiric_x86_64_60G \
 		ubuntu-oneiric_x86_64_80G
 TARGETS = $(FEDORA) $(CENTOS) $(RHEL) $(LUCID) $(MAVERICK) $(NATTY)
-OZ_DEBUG=3
 
-.SUFFIXES = .tdl
-
+# (2) Add a global buil command for the target
 all:		$(TARGETS)
 fedora:		$(FEDORA)
 centos:		$(CENTOS)
@@ -26,41 +28,40 @@ lucid:		$(LUCID)
 maverick:	$(MAVERICK)
 natty:		$(NATTY)
 
+# (3) Add specific upload and clean rules for the target
 centos-upload:	$(CENTOS)
 	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
-
 centos-clean:
 	@$(foreach var,$(CENTOS),make $(var)-clean;)
 
 fedora-upload:	$(FEDORA)
 	@$(foreach var,$(FEDORA),make publish/$(var)-upload;)
-
 fedora-clean:
 	@$(foreach var,$(FEDORA),make $(var)-clean;)
 
 rhel-upload:	$(RHEL)
 	@$(foreach var,$(RHEL),make publish/$(var)-upload;)
-
 rhel-clean:
 	@$(foreach var,$(RHEL),make $(var)-clean;)
 
 lucid-upload:	$(LUCID)
 	@$(foreach var,$(LUCID),make publish/$(var)-upload;)
-
 lucid-clean:
 	@$(foreach var,$(LUCID),make $(var)-clean;)
 
 maverick-upload:	$(MAVERICK)
 	@$(foreach var,$(MAVERICK),make publish/$(var)-upload;)
-
 maverick-clean:
 	@$(foreach var,$(MAVERICK),make $(var)-clean;)
 
 natty-upload:	$(NATTY)
 	@$(foreach var,$(NATTY),make publish/$(var)-upload;)
-
 natty-clean:
 	@$(foreach var,$(NATTY),make $(var)-clean;)
+
+#####
+# DON'T CHANGE ANYTHING ELSE
+#
 
 $(TARGETS):
 	@make publish/$@.qcow2
