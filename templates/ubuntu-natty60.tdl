@@ -20,6 +20,9 @@ sed -i 's/quiet/console=ttyS0/g' /etc/default/grub
    <command name='update'>
 apt-get update
 apt-get -y upgrade
+echo "cloud-init cloud-init/datasources string 'NoCloud, OVF, Ec2'" > /tmp/debconf-selections        
+/usr/bin/debconf-set-selections /tmp/debconf-selections
+rm -f /tmp/debconf-selections
 apt-get -y install cloud-init
 apt-get clean
 /usr/sbin/useradd stack
