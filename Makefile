@@ -68,8 +68,9 @@ $(TARGETS):
 templates/.%.tdl:	templates/%.tdl
 	./fixup-root-passwords.sh templates/$*.tdl > templates/.$*.tdl
 
-publish/%.qcow2: templates/.%.tdl
+publish/%.qcow2: templates/%.tdl
 	@echo "-- Building $*"
+    @make templates/.$*.tdl
 	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh .$* "$*.qcow2" "$*.dsk"
 
 %-upload:
