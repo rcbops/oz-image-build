@@ -26,6 +26,9 @@ lucid:		$(LUCID)
 maverick:	$(MAVERICK)
 natty:		$(NATTY)
 
+centos-upload:	$(CENTOS)
+	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
+
 $(TARGETS):
 	@make publish/$@.qcow2
 
