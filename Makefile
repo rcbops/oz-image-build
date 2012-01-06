@@ -28,6 +28,9 @@ natty:		$(NATTY)
 
 centos-upload:	$(CENTOS)
 	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
+centos-clean:	$(CENTOS)
+	@$(foreach var,$(CENTOS),make $(var)-clean;)
+
 fedora-upload:	$(CENTOS)
 	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
 rhel-upload:	$(CENTOS)
