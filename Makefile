@@ -88,4 +88,4 @@ upload:	$(TARGETS)
 	@rm -f publish/$*.upload
 
 clean:
-	rm -f publish/*
+	find publish -type f -exec rm -f \{\} \;
