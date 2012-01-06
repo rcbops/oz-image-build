@@ -92,5 +92,5 @@ upload:	$(TARGETS)
 clean:
 	find publish -type f -exec rm -f \{\} \;
 
-fixup-password:
+fixup-passwords:
 	@$(foreach var,$(TARGETS),make templates/.$(var).tdl;)
