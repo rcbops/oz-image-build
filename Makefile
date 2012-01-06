@@ -31,16 +31,30 @@ centos-upload:	$(CENTOS)
 centos-clean:	$(CENTOS)
 	@$(foreach var,$(CENTOS),make $(var)-clean;)
 
-fedora-upload:	$(CENTOS)
-	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
-rhel-upload:	$(CENTOS)
-	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
-lucid-upload:	$(CENTOS)
-	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
-maverick-upload:	$(CENTOS)
-	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
-natty-upload:	$(CENTOS)
-	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
+fedora-upload:	$(FEDORA)
+	@$(foreach var,$(FEDORA),make publish/$(var)-upload;)
+fedora-clean:	$(FEDORA)
+	@$(foreach var,$(FEDORA),make $(var)-clean;)
+
+rhel-upload:	$(RHEL)
+	@$(foreach var,$(RHEL),make publish/$(var)-upload;)
+rhel-clean:	$(RHEL)
+	@$(foreach var,$(RHEL),make $(var)-clean;)
+
+lucid-upload:	$(LUCID)
+	@$(foreach var,$(LUCID),make publish/$(var)-upload;)
+lucid-clean:	$(LUCID)
+	@$(foreach var,$(LUCID),make $(var)-clean;)
+
+maverick-upload:	$(MAVERICK)
+	@$(foreach var,$(MAVERICK),make publish/$(var)-upload;)
+maverick-clean:	$(MAVERICK)
+	@$(foreach var,$(MAVERICK),make $(var)-clean;)
+
+natty-upload:	$(NATTY)
+	@$(foreach var,$(NATTY),make publish/$(var)-upload;)
+maverick-clean:	$(NATTY)
+	@$(foreach var,$(NATTY),make $(var)-clean;)
 
 $(TARGETS):
 	@make publish/$@.qcow2
