@@ -2,3 +2,4 @@ push.sh
 templates/*.xml
 publish/
 templates/oz.cfg
+templates/.*
