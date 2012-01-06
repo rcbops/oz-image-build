@@ -42,11 +42,11 @@ function build {
         exit 1
     fi
 
-    if [ -f "$BASE_DIR/fixup-root-passwords.sh" ]; then
-        dl "fixing up root paswords in $LOCAL_TEMPLATES/$TEMPLATE.tdl" 1
-        PASS=`$BASE_DIR/fixup-root-passwords.sh "$LOCAL_TEMPLATES/$TEMPLATE.tdl" $OZ_DEBUG`
-        dl "Password for instance is $PASS" 0
-    fi
+    #if [ -f "$BASE_DIR/fixup-root-passwords.sh" ]; then
+    #    dl "fixing up root paswords in $LOCAL_TEMPLATES/$TEMPLATE.tdl" 1
+    #    PASS=`$BASE_DIR/fixup-root-passwords.sh "$LOCAL_TEMPLATES/$TEMPLATE.tdl" $OZ_DEBUG`
+    #    dl "Password for instance is $PASS" 0
+    #fi
 
     if [ -z $CONFIG_FILE ]; then
         if [ -f "$LOCAL_TEMPLATES/oz.cfg" ]; then
