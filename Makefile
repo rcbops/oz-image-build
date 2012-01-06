@@ -66,7 +66,7 @@ $(TARGETS):
 	@make publish/$@.qcow2
 
 templates/.%.tdl:	templates/%.tdl
-	./fixup-root-passwords.sh templates/$*.tdl > templates/.$*.tdl
+	@./fixup-root-passwords.sh templates/$*.tdl > templates/.$*.tdl
 
 publish/%.qcow2: templates/%.tdl
 	@echo "-- Building $*"
