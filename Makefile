@@ -65,10 +65,10 @@ natty-clean:
 $(TARGETS):
 	@make publish/$@.qcow2
 
-templates/.%.tdl:	templates/%.tdl
-	./fixup-root-passwords.sh templates/$*.tdl > templates/.$*.tdl
+templates/%.tdl.fixed:	templates/%.tdl
+	./fixup-root-passwords.sh templates/$*.tdl > templates/$*.tdl.fixed
 
-publish/%.qcow2: templates/.%.tdl
+publish/%.qcow2: templates/%.tdl.fixed
 	@echo "-- Building $*"
 	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh .$* "$*.qcow2" "$*.dsk"
 
