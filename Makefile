@@ -65,10 +65,10 @@ natty-clean:
 $(TARGETS):
 	@make publish/$@.qcow2
 
-templates/%.tdl.fixed:	templates/%.tdl
-	./fixup-root-passwords.sh templates/$*.tdl > templates/$*.tdl.fixed
+templates/.%.tdl:	templates/%.tdl
+	./fixup-root-passwords.sh templates/$*.tdl > templates/.$*.tdl
 
-publish/%.qcow2: templates/%.tdl.fixed
+publish/%.qcow2: templates/.%.tdl
 	@echo "-- Building $*"
 	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh .$* "$*.qcow2" "$*.dsk"
 
@@ -86,6 +86,7 @@ upload:	$(TARGETS)
 %-clean:
 	@rm -f publish/$*.qcow2
 	@rm -f publish/$*.upload
+	@rm -f templates/.$*.tdl
 
 clean:
 	find publish -type f -exec rm -f \{\} \;
