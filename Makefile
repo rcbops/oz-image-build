@@ -28,6 +28,16 @@ natty:		$(NATTY)
 
 centos-upload:	$(CENTOS)
 	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
+fedora-upload:	$(CENTOS)
+	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
+rhel-upload:	$(CENTOS)
+	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
+lucid-upload:	$(CENTOS)
+	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
+maverick-upload:	$(CENTOS)
+	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
+natty-upload:	$(CENTOS)
+	@$(foreach var,$(CENTOS),make publish/$(var)-upload;)
 
 $(TARGETS):
 	@make publish/$@.qcow2
@@ -48,6 +58,10 @@ publish/%-upload: publish/%.qcow2
 
 upload:	$(TARGETS)
 	@$(foreach var,$(TARGETS),make publish/$(var)-upload;)
+
+%-clean:
+	@rm -f publish/$*.qcow2
+	@rm -f publish/$*.upload
 
 clean:
 	rm -f publish/*
