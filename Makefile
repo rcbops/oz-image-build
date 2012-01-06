@@ -5,7 +5,7 @@ LUCID = ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-luc
 MAVERICK = ubuntu-maverick60 ubuntu-maverick80 ubuntu-maverick120 ubuntu-maverick160 ubuntu-maverick320
 NATTY = ubuntu-natty60 ubuntu-natty80 ubuntu-natty120 ubuntu-natty160 ubuntu-natty320
 TARGETS = $(FEDORA) $(CENTOS) $(RHEL) $(LUCID) $(MAVERICK) $(NATTY)
-OZ_DEBUG=0
+OZ_DEBUG=3
 
 all:
 	@echo "Usage"
