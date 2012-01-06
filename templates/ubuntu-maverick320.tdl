@@ -25,7 +25,7 @@ echo "cloud-init cloud-init/datasources string NoCloud, OVF, Ec2" > /tmp/debconf
 rm -f /tmp/debconf-selections
 apt-get -y install cloud-init
 apt-get clean
-/usr/sbin/useradd stack
+/usr/sbin/useradd -m stack
 echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 sed -i 's/^user: ubuntu/user: stack/g' /etc/cloud/cloud.cfg
 echo -n > /etc/udev/rules.d/70-persistent-net.rules
