@@ -4,6 +4,7 @@ RHEL = rhel56 rhel61
 LUCID = ubuntu-lucid60 ubuntu-lucid80 ubuntu-lucid120 ubuntu-lucid160 ubuntu-lucid320
 MAVERICK = ubuntu-maverick60 ubuntu-maverick80 ubuntu-maverick120 ubuntu-maverick160 ubuntu-maverick320
 NATTY = ubuntu-natty60 ubuntu-natty80 ubuntu-natty120 ubuntu-natty160 ubuntu-natty320
+ONEIRIC = ubuntu-oneiric60 ubuntu-oneiric80 ubuntu-oneiric120 ubuntu-oneiric160 ubuntu-oneiric320
 TARGETS = $(FEDORA) $(CENTOS) $(RHEL) $(LUCID) $(MAVERICK) $(NATTY)
 OZ_DEBUG=3
 
@@ -282,3 +283,63 @@ ubuntu-natty320-build:
 	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-natty320 "ubuntu-natty_x86_64_320G.qcow2" "ubuntu-natty_x86_64_320G.dsk" "templates/ubuntu-natty.oz.cfg"
 
 ubuntu-natty320:	ubuntu-natty320-upload
+
+
+##### ONEIRIC 60G
+ubuntu-oneiric60-upload:	ubuntu-oneiric60-build
+	@echo "processing: $@"
+	@../push.sh put publish/ubuntu-oneiric_x86_64_60G.qcow2 "RCB OPS" ubuntu-oneiric_x86_64_60G.qcow2
+
+ubuntu-oneiric60-build:
+	@echo "processing: $@"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-oneiric60 "ubuntu-oneiric_x86_64_60G.qcow2" "ubuntu-oneiric_x86_64_60G.dsk" "templates/ubuntu-oneiric.oz.cfg"
+
+ubuntu-oneiric60:	ubuntu-oneiric60-upload
+
+
+##### NATTY 80G
+ubuntu-oneiric80-upload:	ubuntu-oneiric80-build
+	@echo "processing: $@"
+	@../push.sh put publish/ubuntu-oneiric_x86_64_80G.qcow2 "RCB OPS" ubuntu-oneiric_x86_64_80G.qcow2
+
+ubuntu-oneiric80-build:
+	@echo "processing: $@"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-oneiric80 "ubuntu-oneiric_x86_64_80G.qcow2" "ubuntu-oneiric_x86_64_80G.dsk" "templates/ubuntu-oneiric.oz.cfg"
+
+ubuntu-oneiric80:	ubuntu-oneiric80-upload
+
+
+##### NATTY 1200G
+ubuntu-oneiric120-upload:	ubuntu-oneiric120-build
+	@echo "processing: $@"
+	@../push.sh put publish/ubuntu-oneiric_x86_64_120G.qcow2 "RCB OPS" ubuntu-oneiric_x86_64_120G.qcow2
+
+ubuntu-oneiric120-build:
+	@echo "processing: $@"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-oneiric120 "ubuntu-oneiric_x86_64_120G.qcow2" "ubuntu-oneiric_x86_64_120G.dsk" "templates/ubuntu-oneiric.oz.cfg"
+
+ubuntu-oneiric120:	ubuntu-oneiric120-upload
+
+
+##### NATTY 160G
+ubuntu-oneiric160-upload:	ubuntu-oneiric160-build
+	@echo "processing: $@"
+	@../push.sh put publish/ubuntu-oneiric_x86_64_160G.qcow2 "RCB OPS" ubuntu-oneiric_x86_64_160G.qcow2
+
+ubuntu-oneiric160-build:
+	@echo "processing: $@"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-oneiric160 "ubuntu-oneiric_x86_64_160G.qcow2" "ubuntu-oneiric_x86_64_160G.dsk" "templates/ubuntu-oneiric.oz.cfg"
+
+ubuntu-oneiric160:	ubuntu-oneiric160-upload
+
+
+##### NATTY 320G
+ubuntu-oneiric320-upload:	ubuntu-oneiric320-build
+	@echo "processing: $@"
+	@../push.sh put publish/ubuntu-oneiric_x86_64_320G.qcow2 "RCB OPS" ubuntu-oneiric_x86_64_320G.qcow2
+
+ubuntu-oneiric320-build:
+	@echo "processing: $@"
+	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh ubuntu-oneiric320 "ubuntu-oneiric_x86_64_320G.qcow2" "ubuntu-oneiric_x86_64_320G.dsk" "templates/ubuntu-oneiric.oz.cfg"
+
+ubuntu-oneiric320:	ubuntu-oneiric320-upload
