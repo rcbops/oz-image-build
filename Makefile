@@ -59,7 +59,7 @@ maverick-clean-all:
 natty-upload-all:	$(NATTY)
 	@$(foreach var,$(NATTY),make publish/$(var)-upload;)
 
-maverick-clean-all:
+natty-clean-all:
 	@$(foreach var,$(NATTY),make $(var)-clean;)
 
 $(TARGETS):
