@@ -13,6 +13,10 @@ all:
 	@echo ""
 	@echo "make <type>"
 	@echo ""
+	@echo "add -build to the end of the target to build without uploading."
+	@echo "add -upload to the end of the target to upload an already built image"
+    @echo ""
+    @echo "Available Targets are:"
 	@$(foreach var,$(TARGETS),echo $(var);)
 	@echo "build-fedora"
 	@echo "build-centos"
