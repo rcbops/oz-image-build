@@ -1,6 +1,6 @@
 <template>
  <name>fedora15_x86_64</name>
- <description>My Fedora 15 x86_64 template</description>
+ <description>Fedora 15 x86_64 template</description>
  <os>
   <name>Fedora</name>
   <version>15</version>
