@@ -87,7 +87,7 @@ upload:	$(TARGETS)
 
 %-clean:
 	@rm -f publish/$*.qcow2
-	@rm -f publish/$*.upload
+	@rm -f publish/$*-upload
 	@rm -f templates/.$*.tdl
 
 clean:
