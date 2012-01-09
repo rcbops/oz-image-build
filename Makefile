@@ -4,7 +4,8 @@ OZ_DEBUG=3
 # (1) Add new targets here
 CENTOS = centos60_x86_64
 FEDORA = fedora15_x86_64 fedora16_x86_64
-RHEL = rhel56_x86_64 rhel61_x86_64
+RHEL5 = rhel56_x86_64
+RHEL6 = rhel61_x86_64
 LUCID = ubuntu-lucid_x86_64_120G ubuntu-lucid_x86_64_160G \
 		ubuntu-lucid_x86_64_320G ubuntu-lucid_x86_64_60G \
 		ubuntu-lucid_x86_64_80G
@@ -23,7 +24,8 @@ TARGETS = $(FEDORA) $(CENTOS) $(RHEL) $(LUCID) $(MAVERICK) $(NATTY)
 all:		$(TARGETS)
 fedora:		$(FEDORA)
 centos:		$(CENTOS)
-rhel:		$(RHEL)
+rhel5:		$(RHEL5)
+rhel6:		$(RHEL6)
 lucid:		$(LUCID)
 maverick:	$(MAVERICK)
 natty:		$(NATTY)
@@ -39,10 +41,15 @@ fedora-upload:	$(FEDORA)
 fedora-clean:
 	@$(foreach var,$(FEDORA),make $(var)-clean;)
 
-rhel-upload:	$(RHEL)
-	@$(foreach var,$(RHEL),make publish/$(var)-upload;)
-rhel-clean:
-	@$(foreach var,$(RHEL),make $(var)-clean;)
+rhel5-upload:	$(RHEL5)
+	@$(foreach var,$(RHEL5),make publish/$(var)-upload;)
+rhel5-clean:
+	@$(foreach var,$(RHEL5),make $(var)-clean;)
+
+rhel6-upload:	$(RHEL6)
+	@$(foreach var,$(RHEL6),make publish/$(var)-upload;)
+rhel6-clean:
+	@$(foreach var,$(RHEL6),make $(var)-clean;)
 
 lucid-upload:	$(LUCID)
 	@$(foreach var,$(LUCID),make publish/$(var)-upload;)
