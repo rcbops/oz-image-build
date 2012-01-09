@@ -62,8 +62,8 @@ function build {
     fi
 
     dl "Starting the build of $IMAGE_NAME on $DISK_NAME from $LOCAL_TEMPLATES/$TEMPLATE.tdl.  This will take a while Shep!" 1
-    dl "/usr/bin/oz-install -c \"$CONFIG_FILE\" -d$OZ_DEBUG -x \"$LOCAL_TEMPLATES/$TEMPLATE.xml\" -p -u \"$LOCAL_TEMPLATES/$TEMPLATE.tdl\"" 2
-    /usr/bin/oz-install -c "$CONFIG_FILE" -d$OZ_DEBUG -x "$LOCAL_TEMPLATES/$TEMPLATE.xml" -p -u "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
+    dl "/usr/bin/oz-install -t 2400 -c \"$CONFIG_FILE\" -d$OZ_DEBUG -x \"$LOCAL_TEMPLATES/$TEMPLATE.xml\" -p -u \"$LOCAL_TEMPLATES/$TEMPLATE.tdl\"" 2
+    /usr/bin/oz-install -t 2400 -c "$CONFIG_FILE" -d$OZ_DEBUG -x "$LOCAL_TEMPLATES/$TEMPLATE.xml" -p -u "$LOCAL_TEMPLATES/$TEMPLATE.tdl"
     if [ $? -eq 0 ]; then
         dl "build successfull" 1
 

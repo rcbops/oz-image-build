@@ -3,26 +3,29 @@ OZ_DEBUG=3
 
 # (1) Add new targets here
 CENTOS = centos60_x86_64
-FEDORA = fedora15_x86_64 fedora16_x86_64
+FEDORA15 = fedora15_x86_64
+FEDORA16 = fedora16_x86_64
 RHEL5 = rhel56_x86_64
 RHEL6 = rhel61_x86_64
-LUCID = ubuntu-lucid_x86_64_120G ubuntu-lucid_x86_64_160G \
-		ubuntu-lucid_x86_64_320G ubuntu-lucid_x86_64_60G \
-		ubuntu-lucid_x86_64_80G
-MAVERICK = ubuntu-maverick_x86_64_120G ubuntu-maverick_x86_64_160G \
-		ubuntu-maverick_x86_64_320G ubuntu-maverick_x86_64_60G \
-		ubuntu-maverick_x86_64_80G
-NATTY = ubuntu-natty_x86_64_120G ubuntu-natty_x86_64_160G \
-		ubuntu-natty_x86_64_320G ubuntu-natty_x86_64_60G \
-		ubuntu-natty_x86_64_80G
-ONEIRIC = ubuntu-oneiric_x86_64_120G ubuntu-oneiric_x86_64_160G \
-		ubuntu-oneiric_x86_64_320G ubuntu-oneiric_x86_64_60G \
-		ubuntu-oneiric_x86_64_80G
-TARGETS = $(FEDORA) $(CENTOS) $(RHEL5) $(RHEL6) $(LUCID) $(MAVERICK) $(NATTY) $(ONEIRIC)
+LUCID = ubuntu-lucid_x86_64_60G ubuntu-lucid_x86_64_80G \
+		ubuntu-lucid_x86_64_120G ubuntu-lucid_x86_64_160G \
+		ubuntu-lucid_x86_64_320G
+MAVERICK = ubuntu-maverick_x86_64_60G ubuntu-maverick_x86_64_80G \
+		ubuntu-maverick_x86_64_120G ubuntu-maverick_x86_64_160G \
+		ubuntu-maverick_x86_64_320G
+NATTY = ubuntu-natty_x86_64_60G ubuntu-natty_x86_64_80G \
+		ubuntu-natty_x86_64_120G ubuntu-natty_x86_64_160G \
+		ubuntu-natty_x86_64_320G
+ONEIRIC = ubuntu-oneiric_x86_64_60G ubuntu-oneiric_x86_64_80G \
+		ubuntu-oneiric_x86_64_120G ubuntu-oneiric_x86_64_160G \
+		ubuntu-oneiric_x86_64_320G
+TARGETS = $(FEDORA15) $(FEDORA16) $(CENTOS) $(RHEL5) $(RHEL6) \
+		$(LUCID) $(MAVERICK) $(NATTY) $(ONEIRIC)
 
 # (2) Add a global buil command for the target
 all:		$(TARGETS)
-fedora:		$(FEDORA)
+fedora15:	$(FEDORA15)
+fedora16:	$(FEDORA16)
 centos:		$(CENTOS)
 rhel5:		$(RHEL5)
 rhel6:		$(RHEL6)
@@ -37,10 +40,15 @@ centos-upload:	$(CENTOS)
 centos-clean:
 	@$(foreach var,$(CENTOS),make $(var)-clean;)
 
-fedora-upload:	$(FEDORA)
-	@$(foreach var,$(FEDORA),make publish/$(var)-upload;)
-fedora-clean:
-	@$(foreach var,$(FEDORA),make $(var)-clean;)
+fedora15-upload:	$(FEDORA15)
+	@$(foreach var,$(FEDORA15),make publish/$(var)-upload;)
+fedora15-clean:
+	@$(foreach var,$(FEDORA15),make $(var)-clean;)
+
+fedora16-upload:	$(FEDORA16)
+	@$(foreach var,$(FEDORA16),make publish/$(var)-upload;)
+fedora16-clean:
+	@$(foreach var,$(FEDORA16),make $(var)-clean;)
 
 rhel5-upload:	$(RHEL5)
 	@$(foreach var,$(RHEL5),make publish/$(var)-upload;)
