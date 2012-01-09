@@ -71,34 +71,35 @@ natty-clean:
 #
 
 $(TARGETS):
-	@make publish/$@.qcow2
+	make publish/$@.qcow2
 
 templates/.%.tdl:	templates/%.tdl
-	@./fixup-root-passwords.sh templates/$*.tdl > templates/.$*.tdl
+	./fixup-root-passwords.sh templates/$*.tdl > templates/.$*.tdl
 
 publish/%.qcow2: templates/%.tdl
 	@echo "-- Building $*"
-	@make templates/.$*.tdl
-	@OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh .$* "$*.qcow2" "$*.dsk"
+	make templates/.$*.tdl
+	OZ_DEBUG=$(OZ_DEBUG) ./build-helper.sh .$* "$*.qcow2" "$*.dsk"
 
 %-upload:
-	@make publish/$*-upload
+	make publish/$*-upload
 
 publish/%-upload: publish/%.qcow2
 	@echo "-- UPLOAD $*"
-	@./push.sh put publish/$*.qcow2 "RCB OPS" $*.qcow2
-	@touch $@
+	./push.sh put publish/$*.qcow2 "RCB OPS" $*.qcow2
+	touch $@
 
 upload:	$(TARGETS)
-	@$(foreach var,$(TARGETS),make publish/$(var)-upload;)
+	$(foreach var,$(TARGETS),make publish/$(var)-upload;)
 
 %-clean:
-	@rm -f publish/$*.qcow2
-	@rm -f publish/$*-upload
-	@rm -f templates/.$*.tdl
+	rm -f publish/$*.qcow2
+	rm -f publish/$*-upload
+	rm -f templates/.$*.tdl
+	rm -f templates/.$*.xml
 
 clean:
 	find publish -type f -exec rm -f \{\} \;
 
 fixup-passwords:
-	@$(foreach var,$(TARGETS),make templates/.$(var).tdl;)
+	$(foreach var,$(TARGETS),make templates/.$(var).tdl;)
