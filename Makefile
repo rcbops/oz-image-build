@@ -18,7 +18,7 @@ NATTY = ubuntu-natty_x86_64_120G ubuntu-natty_x86_64_160G \
 ONEIRIC = ubuntu-oneiric_x86_64_120G ubuntu-oneiric_x86_64_160G \
 		ubuntu-oneiric_x86_64_320G ubuntu-oneiric_x86_64_60G \
 		ubuntu-oneiric_x86_64_80G
-TARGETS = $(FEDORA) $(CENTOS) $(RHEL) $(LUCID) $(MAVERICK) $(NATTY)
+TARGETS = $(FEDORA) $(CENTOS) $(RHEL5) $(RHEL6) $(LUCID) $(MAVERICK) $(NATTY)
 
 # (2) Add a global buil command for the target
 all:		$(TARGETS)
