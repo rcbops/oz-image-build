@@ -1,12 +1,11 @@
 Image Build
 -----------
 1) Install oz using the packages in /packages
-2) Modify template file in templates/ and change the <rootpw> section in the .tdl for the distribution you want to modify
-3) build the image
-    ./build.sh f16 # will built a fedora 16 image
-4) Copy the distro.img file to your nova infra node and add it to glance
-    keyglance <admin user> <admin password> add name="<IMAGE NAME>" container_format=bare disk_format=raw is_Public="True" < distro.img
-5) Launch an instance and enjoy
+2) build the image
+    make fedora16 # will built a fedora 16 image
+3) Copy the distro.img file to your nova infra node and add it to glance
+    glance -A add name="<IMAGE NAME>" container_format=bare disk_format=raw is_Public="True" < distro.img
+4) Launch an instance and enjoy
 
 Current RCB OpenStack Image List (built images for deployment)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -32,4 +31,9 @@ Ubuntu 11.04 (80GB)  http://c250663.r63.cf1.rackcdn.com/ubuntu-natty_x86_64_80G.
 Ubuntu 11.04 (120GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-natty_x86_64_120G.qcow2
 Ubuntu 11.04 (160GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-natty_x86_64_160G.qcow2
 Ubuntu 11.04 (320GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-natty_x86_64_320G.qcow2
+Ubuntu 11.10 (60GB)  http://c250663.r63.cf1.rackcdn.com/ubuntu-oneiric_x86_64_60G.qcow2
+Ubuntu 11.10 (80GB)  http://c250663.r63.cf1.rackcdn.com/ubuntu-oneiric_x86_64_80G.qcow2
+Ubuntu 11.10 (120GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-oneiric_x86_64_120G.qcow2
+Ubuntu 11.10 (160GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-oneiric_x86_64_160G.qcow2
+Ubuntu 11.10 (320GB) http://c250663.r63.cf1.rackcdn.com/ubuntu-oneiric_x86_64_320G.qcow2
 ttylinux             http://c250663.r63.cf1.rackcdn.com/ttylinux.tgz
