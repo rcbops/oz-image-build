@@ -19,6 +19,7 @@ NATTY = ubuntu-natty_x86_64_60G ubuntu-natty_x86_64_80G \
 ONEIRIC = ubuntu-oneiric_x86_64_60G ubuntu-oneiric_x86_64_80G \
 		ubuntu-oneiric_x86_64_120G ubuntu-oneiric_x86_64_160G \
 		ubuntu-oneiric_x86_64_320G
+WINDOWS = win2k8r1
 TARGETS = $(FEDORA15) $(FEDORA16) $(CENTOS) $(RHEL5) $(RHEL6) \
 		$(LUCID) $(MAVERICK) $(NATTY) $(ONEIRIC)
 
@@ -33,6 +34,7 @@ lucid:		$(LUCID)
 maverick:	$(MAVERICK)
 natty:		$(NATTY)
 oneiric:	$(ONEIRIC)
+windows:	$(WINDOWS)
 
 # (3) Add specific upload and clean rules for the target
 centos-upload:	$(CENTOS)
@@ -79,6 +81,11 @@ oneiric-upload:	$(ONEIRIC)
 	@$(foreach var,$(ONEIRIC),make publish/$(var)-upload;)
 oneiric-clean:
 	@$(foreach var,$(ONEIRIC),make $(var)-clean;)
+
+windows-upload:	$(WINDOWS)
+	@$(foreach var,$(WINDOWS),make publish/$(var)-upload;)
+windows-clean:
+	@$(foreach var,$(WINDOWS),make $(var)-clean;)
 
 #####
 # DON'T CHANGE ANYTHING ELSE
