@@ -6,7 +6,7 @@ CENTOS = centos60_x86_64
 FEDORA15 = fedora15_x86_64
 FEDORA16 = fedora16_x86_64
 RHEL5 = rhel56_x86_64
-RHEL6 = rhel61_x86_64
+RHEL6 = rhel61_x86_64 rhel62_x86_64
 LUCID = ubuntu-lucid_x86_64_60G ubuntu-lucid_x86_64_80G \
 		ubuntu-lucid_x86_64_120G ubuntu-lucid_x86_64_160G \
 		ubuntu-lucid_x86_64_320G
