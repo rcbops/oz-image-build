@@ -21,7 +21,7 @@ ONEIRIC = ubuntu-oneiric_x86_64_60G ubuntu-oneiric_x86_64_80G \
 		ubuntu-oneiric_x86_64_320G
 WINDOWS = win2k8r1
 TARGETS = $(FEDORA15) $(FEDORA16) $(CENTOS) $(RHEL5) $(RHEL6) \
-		$(LUCID) $(MAVERICK) $(NATTY) $(ONEIRIC)
+		$(LUCID) $(MAVERICK) $(NATTY) $(ONEIRIC) ${WINDOWS}
 
 # (2) Add a global buil command for the target
 all:		$(TARGETS)
