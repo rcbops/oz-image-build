@@ -6,7 +6,7 @@
   <version>2008</version>
   <arch>x86_64</arch>
   <install type='iso'>
-    <iso>/home/breu/win2kr2.iso</iso>
+    <iso>/root/win2kr2.iso</iso>
   </install>
  </os>
 </template>
