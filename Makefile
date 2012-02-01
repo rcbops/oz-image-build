@@ -40,7 +40,7 @@ centos-upload:	$(CENTOS)
 centos-clean:
 	@$(foreach var,$(CENTOS),make $(var)-clean;)
 
-fedora-upload
+fedora-upload:
 	@make fedora15-upload
 	@make fedora15-upload
 
