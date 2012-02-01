@@ -7,7 +7,7 @@
   <arch>x86_64</arch>
   <rootpw>ROOT-PW_CHANGE-ME!!!</rootpw>
   <install type='url'>
-    <url>http://mirrors.kernel.org/fedora/releases/test/16-Beta/Fedora/x86_64/os/</url>
+    <url>http://mirrors.kernel.org/fedora/releases/16/Fedora/x86_64/os/</url>
   </install>
  </os>
  <packages>
