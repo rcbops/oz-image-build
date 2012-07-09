@@ -1,7 +1,9 @@
 <template>
  <name>ubuntu-precise_x86_64_320G</name>
  <description>Ubuntu 12.04 320GB template</description>
- <disksize>320</disksize>
+ <disk>
+   <size>320</size>
+ </disk>
  <os>
   <name>Ubuntu</name>
   <version>12.04</version>

@@ -1,7 +1,9 @@
 <template>
  <name>ubuntu-maverick_x86_64_160G</name>
  <description>Ubuntu 10.10 160GB template</description>
- <disksize>160</disksize>
+ <disk>
+   <size>160</size>
+ </disk>
  <os>
   <name>Ubuntu</name>
   <version>10.10</version>

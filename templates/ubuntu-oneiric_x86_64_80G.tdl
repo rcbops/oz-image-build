@@ -1,7 +1,9 @@
 <template>
  <name>ubuntu-oneiric_x86_64_80G</name>
  <description>Ubuntu 11.10 80GB template</description>
- <disksize>80</disksize>
+ <disk>
+   <size>80</size>
+ </disk>
  <os>
   <name>Ubuntu</name>
   <version>11.10</version>

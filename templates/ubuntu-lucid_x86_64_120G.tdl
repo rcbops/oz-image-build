@@ -1,7 +1,9 @@
 <template>
  <name>ubuntu-lucid_x86_64_120G</name>
  <description>Ubuntu 10.04 120GB template</description>
- <disksize>120</disksize>
+ <disk>
+  <size>120</size>
+ </disk>
  <os>
   <name>Ubuntu</name>
   <version>10.04</version>
