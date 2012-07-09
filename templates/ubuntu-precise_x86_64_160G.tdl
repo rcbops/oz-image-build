@@ -1,0 +1,35 @@
+<template>
+ <name>ubuntu-precise_x86_64_160G</name>
+ <description>Ubuntu 12.04 160GB template</description>
+ <disksize>160</disksize>
+ <os>
+  <name>Ubuntu</name>
+  <version>12.04</version>
+  <arch>x86_64</arch>
+  <rootpw>ROOT-PW_CHANGE-ME!!!</rootpw>
+  <install type='iso'>
+    <iso>http://releases.ubuntu.com/12.04/ubuntu-12.04-server-amd64.iso</iso>
+  </install>
+ </os>
+ <commands>
+   <command name='console'>
+sed -i 's/splash//g' /etc/default/grub
+sed -i 's/quiet/console=ttyS0/g' /etc/default/grub
+/usr/sbin/update-grub
+   </command>
+   <command name='update'>
+apt-get update
+apt-get -y upgrade
+echo "cloud-init cloud-init/datasources string NoCloud, OVF, Ec2" > /tmp/debconf-selections        
+/usr/bin/debconf-set-selections /tmp/debconf-selections
+rm -f /tmp/debconf-selections
+apt-get -y install cloud-init
+apt-get clean
+/usr/sbin/useradd -m stack
+echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+sed -i 's/^user: ubuntu/user: stack/g' /etc/cloud/cloud.cfg
+echo -n > /etc/udev/rules.d/70-persistent-net.rules
+echo -n > /lib/udev/rules.d/75-persistent-net-generator.rules
+   </command>
+ </commands>
+</template>
