@@ -19,8 +19,11 @@ NATTY = ubuntu-natty_x86_64_60G ubuntu-natty_x86_64_80G \
 ONEIRIC = ubuntu-oneiric_x86_64_60G ubuntu-oneiric_x86_64_80G \
 		ubuntu-oneiric_x86_64_120G ubuntu-oneiric_x86_64_160G \
 		ubuntu-oneiric_x86_64_320G
+PRECISE = ubuntu-precise_x86_64_60G ubuntu-precise_x86_64_80G \
+		ubuntu-precise_x86_64_120G ubuntu-precise_x86_64_160G \
+		ubuntu-precise_x86_64_320G
 TARGETS = $(FEDORA15) $(FEDORA16) $(CENTOS) $(RHEL5) $(RHEL6) \
-		$(LUCID) $(MAVERICK) $(NATTY) $(ONEIRIC)
+		$(LUCID) $(MAVERICK) $(NATTY) $(ONEIRIC) $(PRECISE)
 
 # (2) Add a global buil command for the target
 all:		$(TARGETS)
@@ -33,6 +36,7 @@ lucid:		$(LUCID)
 maverick:	$(MAVERICK)
 natty:		$(NATTY)
 oneiric:	$(ONEIRIC)
+precise:	$(PRECISE)
 
 # (3) Add specific upload and clean rules for the target
 centos-upload:	$(CENTOS)
@@ -83,6 +87,11 @@ oneiric-upload:	$(ONEIRIC)
 	@$(foreach var,$(ONEIRIC),make publish/$(var)-upload;)
 oneiric-clean:
 	@$(foreach var,$(ONEIRIC),make $(var)-clean;)
+
+precise-upload:	$(PRECISE)
+	@$(foreach var,$(PRECISE),make publish/$(var)-upload;)
+precise-clean:
+	@$(foreach var,$(PRECISE),make $(var)-clean;)
 
 #####
 # DON'T CHANGE ANYTHING ELSE
