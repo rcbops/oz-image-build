@@ -6,7 +6,7 @@ Image Build
     ./build.sh f16 # will built a fedora 16 image
 4) Copy the distro.img file to your nova infra node and add it to glance
     keyglance <admin user> <admin password> add name="<IMAGE NAME>" container_format=bare disk_format=raw is_Public="True" < distro.img
-5) Launch an instance and enjoy
+5) Launch an instance and enjoy 
 
 Current RCB OpenStack Image List (built images for deployment)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
